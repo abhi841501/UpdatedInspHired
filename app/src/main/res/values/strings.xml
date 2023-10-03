@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">InspHiredApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Home">Home</string>
+    <string name="Hom">Home</string>
+    <string name="Appointments">My Appointments</string>
+    <string name="walletEmployee">Wallet</string>
+    <string name="profileEmp">Profile</string>
+    <string name="favouriteEmployeeList">All Favourite Employee List</string>
+    <string name="allPayments">All Payments</string>
+    <string name="profileFragment">Profile</string>
+    <string name="tex1">"Always meets and exceeds projects exceptions"</string>
+    <string name="tex2">"Always maintains calm and composed manner under tense situations"</string>
+    <string name="tex3">"Knows the best way to apply new and more effective method to conduct business"</string>
+    <string name="tex4">"Always helps colleagues and team members to remain calm and focused on the main goals during project execution"</string>
+    <string name="tex5">"Very flexible and always adapt to changes in assignments"</string>
+    <string name="category">"Select Category"</string>
+    <string name="tex6">"Possesses a positive attitude towards criticism and comments from colleagues and superiors"</string>
+    <string name="title_activity_payments">PaymentsActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="default_notification_channel_id">PushNotifications</string>
+    <string name="search">Search Candidates</string>
+    <string name="hint_enter_a_message">Type a message…</string>
+
+
+</resources>

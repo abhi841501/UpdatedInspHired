@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "345932732198",
+    "project_id": "insphired-bbaaa",
+    "storage_bucket": "insphired-bbaaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345932732198:android:00c092110e389af73b13e7",
+        "android_client_info": {
+          "package_name": "com.example.insphiredapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345932732198-hggejb57n505p3npdqrl2hhbvgatgs3v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.insphiredapp",
+            "certificate_hash": "8425fd8898177a447ca871c2a8d0ba9cea673106"
+          }
+        },
+        {
+          "client_id": "345932732198-o5o794f0fkhtntghvkbo5ssat53ea0k8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALeEY5xSjQzn_igyFs2Up4cLvThh6jIpc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345932732198-o5o794f0fkhtntghvkbo5ssat53ea0k8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

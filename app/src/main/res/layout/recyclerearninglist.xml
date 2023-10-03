@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:weightSum="10"
+            android:orientation="horizontal">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:id="@+id/earningCompanyImage"
+                android:src="@drawable/companyimage"
+                android:tint="@color/skyBlue"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:layout_weight="9">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="Xyz Solutions Pvt Ltd"
+                    android:id="@+id/earningCompanyName"
+                    android:textSize="15dp"
+                    android:layout_weight="6"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+
+              <!--  <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_baseline_currency_rupee_24"
+                    android:layout_weight="1"
+                    android:paddingLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    app:tint="@color/skyBlue" />
+-->
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:layout_marginTop="15dp"
+                    android:text="R"
+                    android:layout_weight="1"
+                    android:textColor="@color/Green"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/earningCompanyprice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="2"
+                    android:textSize="16dp"
+                    android:text="600"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:minWidth="0.001sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

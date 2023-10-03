@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EmployerActivity.LoginActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/bottombanner">
+
+            </ImageView>
+
+            <RadioGroup
+                android:id="@+id/radioGroupBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RadioButton
+                    android:id="@+id/employerRegBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/darkRed"
+                    android:checked="true"
+                    android:paddingLeft="10dp"
+                    android:text="Employer"
+                    android:textColor="@color/black"
+                    android:textSize="19dp" />
+
+                <RadioButton
+                    android:id="@+id/employeeRegBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/darkRed"
+                    android:paddingLeft="10dp"
+                    android:text="Employee "
+                    android:textColor="@color/black"
+                    android:textSize="19dp" />
+            </RadioGroup>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="60dp"
+                android:background="#138AAB"
+                android:elevation="14dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="40dp">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#138AAB"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:text="Register"
+                        android:textColor="@color/white"
+                        android:textSize="22dp"
+                        android:textStyle="bold"></TextView>
+
+
+                    <LinearLayout
+                        android:id="@+id/linearRegisterEmployee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/login_backgrounf">
+
+                            <EditText
+                                android:id="@+id/firstNameRegEmpee"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginLeft="15dp"
+                                android:background="@null"
+                                android:hint="Enter first name"
+                                android:inputType="textPersonName"
+                                android:padding="6dp"
+                                android:textSize="15dp" />
+
+                        </RelativeLayout>
+
+                        <!--
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="45dp"
+                                            android:background="@drawable/login_backgrounf"
+                                            android:layout_marginTop="25dp"
+                                            android:layout_marginStart="15dp"
+                                            android:layout_marginEnd="15dp">
+
+                                            <EditText
+                                                android:id="@+id/lastNameRegEmpee"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_alignParentLeft="true"
+                                                android:layout_centerInParent="true"
+                                                android:layout_marginLeft="15dp"
+                                                android:background="@null"
+                                                android:hint="Enter last name"
+                                                android:inputType="textPersonName"
+                                                android:padding="6dp"
+                                                android:textSize="15dp" />
+
+                                        </RelativeLayout>-->
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/login_backgrounf">
+
+                            <EditText
+                                android:id="@+id/emailRegEmpee"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginLeft="15dp"
+                                android:background="@null"
+                                android:hint="Enter your email"
+                                android:inputType="textEmailAddress"
+                                android:padding="6dp"
+                                android:textSize="15dp" />
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/login_backgrounf">
+
+                            <EditText
+                                android:id="@+id/editProfilePhone"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginLeft="15dp"
+                                android:background="@null"
+                                android:hint="Enter phone number"
+                                android:inputType="number"
+                                android:maxLength="10"
+                                android:padding="6dp"
+                                android:textSize="15dp" />
+
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/login_backgrounf">
+
+                            <EditText
+                                android:id="@+id/editPasswordRegEmpee"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginLeft="15dp"
+                                android:background="@null"
+                                android:hint="Password"
+                                android:inputType="textPassword"
+                                android:padding="6dp"
+                                android:textSize="15dp" />
+
+                            <ImageView
+                                android:id="@+id/regPasswordHidden"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:foregroundGravity="center"
+                                android:src="@drawable/hidden0"
+                                app:tint="@color/darkgrey" />
+
+                            <ImageView
+                                android:id="@+id/regPasswordShow"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:foregroundGravity="center"
+                                android:src="@drawable/eye"
+                                android:visibility="gone"
+                                app:tint="@color/darkgrey" />
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/login_backgrounf">
+
+                            <EditText
+                                android:id="@+id/editConfirmPasswordRegEmpee"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginLeft="15dp"
+                                android:background="@null"
+                                android:hint="Confirm Password"
+                                android:inputType="textPassword"
+                                android:padding="6dp"
+                                android:textSize="15dp" />
+
+
+                            <ImageView
+                                android:id="@+id/regConfirmPHidden"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:foregroundGravity="center"
+                                android:src="@drawable/hidden0"
+                                app:tint="@color/darkgrey" />
+
+                            <ImageView
+                                android:id="@+id/regConfirmPShow"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:foregroundGravity="center"
+                                android:src="@drawable/eye"
+                                android:visibility="gone"
+                                app:tint="@color/darkgrey" />
+
+                        </RelativeLayout>
+
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/regSignUpButton"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/round_corner_login"
+                            android:text="SignUp"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="18dp"></androidx.appcompat.widget.AppCompatButton>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/notMember"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:text="Already have  an account ? "
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/SignInEmployeeReg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:text="Sign In"
+                                android:textColor="@color/white"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

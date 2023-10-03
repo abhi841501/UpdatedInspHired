@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmployerActivity.DashboardActivity">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/top_menu"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/container"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toTopOf="@+id/bottom_menu"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/top_menu"
+      app:layout_constraintVertical_bias="1.0"></androidx.constraintlayout.widget.ConstraintLayout>
+
+  <androidx.appcompat.widget.LinearLayoutCompat
+      android:id="@+id/bottom_menu"
+      android:layout_width="match_parent"
+      android:layout_height="65dp"
+      android:background="@color/darkRed"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      android:orientation="horizontal"
+      android:weightSum="10">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/home_layout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2.5"
+
+        >
+      <androidx.appcompat.widget.AppCompatImageView
+          android:layout_width="35dp"
+          android:id="@+id/homeIcon"
+          android:layout_height="35dp"
+          android:layout_gravity="center"
+          android:layout_marginTop="5dp"
+          android:src="@drawable/house1">
+      </androidx.appcompat.widget.AppCompatImageView>
+
+      <TextView
+          android:id="@+id/homeIconText"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:text="Home"
+          android:layout_gravity="center"
+          android:textColor="@color/white"
+          android:textSize="12dp" />
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/favourite_layout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2.5"
+
+        >
+      <androidx.appcompat.widget.AppCompatImageView
+          android:layout_width="35dp"
+          android:id="@+id/favouriteIcon"
+          android:layout_height="35dp"
+          android:layout_gravity="center"
+          android:layout_marginTop="5dp"
+          android:src="@drawable/appoinment1"
+          android:tint="@color/white">
+      </androidx.appcompat.widget.AppCompatImageView>
+
+      <TextView
+          android:id="@+id/favouriteIconText"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:text="Favourite"
+          android:layout_gravity="center"
+          android:textColor="@color/white"
+          android:textSize="12dp"/>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/wallet_layout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2.5">
+
+      <androidx.appcompat.widget.AppCompatImageView
+          android:layout_width="35dp"
+          android:layout_height="35dp"
+          android:layout_gravity="center"
+          android:layout_marginTop="5dp"
+          android:src="@drawable/wallet1"
+          android:id="@+id/walletIcon">
+      </androidx.appcompat.widget.AppCompatImageView>
+
+      <TextView
+          android:id="@+id/walletIconText"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:text="Payment History"
+          android:layout_gravity="center"
+          android:textColor="@color/white"
+          android:textSize="12dp"/>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/profile_layout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2.5">
+
+      <androidx.appcompat.widget.AppCompatImageView
+          android:layout_width="35dp"
+          android:id="@+id/profileIcon"
+          android:layout_height="35dp"
+          android:layout_gravity="center"
+          android:layout_marginTop="5dp"
+          android:src="@drawable/profile1">
+      </androidx.appcompat.widget.AppCompatImageView>
+
+      <TextView
+          android:id="@+id/profileIconText"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:text="Profile"
+          android:layout_gravity="center"
+          android:textColor="@color/white"
+          android:textSize="12dp" />
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+  </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>

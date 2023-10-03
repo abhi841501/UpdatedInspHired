@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom = "20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/background"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="10"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="60dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/myappdate"
+                        android:src="@drawable/employee">
+
+
+                        <TextView
+                            android:id="@+id/upcomingDate"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:text="15"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/upcomingMonth"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="sep"
+                            android:layout_gravity="center"
+                            android:paddingLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:paddingRight="5dp"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="10">
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="10"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:id="@+id/CNameFF"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="MobnWeb apps Solutions"
+                                android:textSize="18dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/CatNameFF"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Android Developer"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/greyDark"/>
+
+                            </LinearLayout>
+
+                 <!--           <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:orientation="vertical">
+
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/salaryimg"
+                                    app:tint="@color/greyDark" />
+
+
+                                <TextView
+                                    android:id="@+id/DailyAmountFF"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:text="R 500 Per Day Amount"
+                                    android:textColor="@color/greyDark"
+                                    android:textStyle="bold" />
+
+                            </RelativeLayout>-->
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight=".5"
+                        android:text="Start Date :"
+                        android:textColor="@color/greyDark" />
+
+
+                    <TextView
+                        android:id="@+id/startDateFF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="9.5"
+                        android:text="15/06/2022"
+                        android:textColor="@color/greyDark"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="8dp"
+
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight=".5"
+                        android:text="End Date :"
+                        android:textColor="@color/greyDark" />
+
+
+                    <TextView
+                        android:id="@+id/endDateFF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="9.5"
+                        android:text="15/06/2023"
+                        android:textColor="@color/greyDark"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

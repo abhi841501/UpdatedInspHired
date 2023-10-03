@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="50dp">
+
+
+        <ImageView
+            android:id="@+id/backArrowProfileee"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:tint="@color/black" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/userProfileEmployerrrr"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/employee" />
+
+                    <RelativeLayout
+                        android:layout_width="35dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="75dp"
+                        android:layout_marginTop="65dp"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/addImageEmployerrr"
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_baseline_camera_alt_24"
+                            app:tint="@color/black" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/skyBlue"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:text="All Information"
+                        android:textColor="@color/white"
+                        android:textSize="22dp"
+                        android:textStyle="bold"></TextView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@color/skyBlue"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="10dp">
+
+
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginEnd="15dp"
+                                android:background="@drawable/background_border">
+
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:src="@drawable/user"
+                                    tools:ignore="UseAppTint" />
+
+                                <EditText
+                                    android:id="@+id/PNameEEdit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="50dp"
+                                    android:background="@null"
+                                    android:hint="Name"
+                                    android:inputType="textPersonName"
+                                    android:padding="6dp"
+                                    android:textSize="15dp" />
+
+                            </RelativeLayout>
+
+
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginEnd="15dp"
+                                android:background="@drawable/background_border">
+
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:src="@drawable/emaile"
+                                    tools:ignore="UseAppTint" />
+
+
+                                <EditText
+                                    android:id="@+id/PEmailEEdit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="50dp"
+                                    android:background="@null"
+                                    android:hint="Email"
+                                    android:inputType="textEmailAddress"
+                                    android:padding="6dp"
+                                    android:textSize="15dp" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginEnd="12dp"
+                                android:background="@drawable/background_border">
+
+
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:tint="@color/skyBlue"
+                                    android:src="@drawable/ic_baseline_local_phone_24"
+                                    tools:ignore="UseAppTint" />
+
+                                <EditText
+                                    android:id="@+id/PPhoneEEdit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="50dp"
+                                    android:background="@null"
+                                    android:hint="Phone Number"
+                                    android:inputType="number"
+                                    android:maxLength="10"
+                                    android:padding="6dp"
+                                    android:textSize="15dp" />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginEnd="12dp"
+                                android:background="@drawable/background_border">
+
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:src="@drawable/pin"
+                                    android:tint="@color/skyBlue"
+                                    tools:ignore="UseAppTint" />
+
+
+                                <EditText
+                                    android:id="@+id/PCompanyAddEdit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="50dp"
+                                    android:background="@null"
+                                    android:hint="Company Address"
+                                    android:inputType="textWebEmailAddress"
+                                    android:padding="6dp"
+                                    android:textSize="15dp" />
+
+                            </RelativeLayout>
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginEnd="12dp"
+                                android:background="@drawable/background_border">
+
+
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:src="@drawable/price_list"
+                                    android:tint="@color/skyBlue"
+                                    tools:ignore="UseAppTint" />
+
+
+                                <EditText
+                                    android:id="@+id/PDailyRateAddress"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="50dp"
+                                    android:background="@null"
+                                    android:hint="Daily Rate"
+                                    android:inputType="number"
+                                    android:padding="6dp"
+                                    android:textSize="15dp" />
+
+                            </RelativeLayout>
+
+
+
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/UpdateProfileeedit"
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginEnd="15dp"
+                                android:layout_marginBottom="30dp"
+                                android:background="@drawable/black_button_background"
+                                android:text="Update"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="18dp"></androidx.appcompat.widget.AppCompatButton>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
+
+
+
+
+

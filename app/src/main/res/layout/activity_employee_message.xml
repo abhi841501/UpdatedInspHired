@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".EmployeeActivity.EmployeeMessageActivity">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/relativeTop">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="70dp"
+            android:gravity="center_vertical"
+            android:text="Messages"
+            android:textColor="@color/black"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/backArrowME"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:tint="@color/black" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSendMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeTop"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="70dp" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_above="@+id/RelativeeditSendMsg"
+        android:background="@color/grey" />
+
+
+
+    <LinearLayout
+        android:id="@+id/RelativeeditSendMsg"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:weightSum="10"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editSendMsg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="9.5"
+            android:background="@null"
+            android:hint="Enter Message"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+
+        <ImageView
+            android:id="@+id/sendBtnEmployee"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_weight=".5"
+            android:layout_centerInParent="true"
+            android:src="@drawable/download001" />
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chatbackground"
+            android:layout_weight="10">
+
+            <com.stfalcon.chatkit.messages.MessageInput
+                android:id="@+id/input"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_alignParentBottom="true"
+                app:inputHint="@string/hint_enter_a_message"/>-->
+
+    </LinearLayout>
+
+
+<!--
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sendBtnEmployee"
+            android:layout_width="70dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/chat_background"
+            android:text="Send"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"></androidx.appcompat.widget.AppCompatButton>-->
+
+<!--
+    <com.stfalcon.chatkit.messages.MessagesList
+        android:id="@+id/messagesList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/input"
+        android:layout_marginTop="80dp"
+        app:dateHeaderFormat="dd MMMM yyyy"
+        app:incomingDefaultBubbleColor="@color/ivory"
+        app:incomingDefaultBubblePressedColor="@color/ivory_dark"
+        app:incomingDefaultBubbleSelectedColor="@color/gray"
+        app:incomingDefaultImageOverlayPressedColor="@color/black_10"
+        app:incomingDefaultImageOverlaySelectedColor="@color/gray_transparent"
+        app:incomingTextColor="@color/black"
+        app:incomingTextLinkColor="@color/green"
+        app:incomingTextSize="18sp"
+        app:outcomingDefaultBubbleColor="@color/green"
+        app:outcomingDefaultBubblePressedColor="@color/green_dark"
+        app:outcomingDefaultBubbleSelectedColor="@color/gray_dark_transparent"
+        app:outcomingDefaultImageOverlayPressedColor="@color/black_10"
+        app:outcomingDefaultImageOverlaySelectedColor="@color/gray_transparent"
+        app:outcomingTextColor="@color/white"
+        app:outcomingTextLinkColor="@color/brown"
+        app:outcomingTextSize="18sp"
+        app:textAutoLink="all" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/input"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/gray_light" />
+
+    <com.stfalcon.chatkit.messages.MessageInput
+        android:id="@+id/input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:attachmentButtonDefaultIconColor="@color/greyDark"
+        app:attachmentButtonDefaultIconPressedColor="@color/greyDark"
+        app:inputButtonDefaultBgColor="@color/greyDark"
+        app:inputButtonDefaultBgPressedColor="@color/greyDark"
+        app:inputCursorDrawable="@drawable/shape_custom_cursor"
+        app:inputHint="@string/hint_enter_a_message"
+        app:showAttachmentButton="true" />
+-->
+
+
+
+
+</RelativeLayout>

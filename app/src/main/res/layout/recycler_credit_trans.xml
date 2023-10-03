@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgCredit"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/salaryimg" />
+
+        <TextView
+            android:id="@+id/CnameTransCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/imgCredit"
+            android:gravity="center"
+            android:text="Software Development Company"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/debitAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/CnameTransCompany"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/imgCredit"
+            android:gravity="center"
+            android:text="Credit Amount : -"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:id="@+id/priceCredit1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/CnameTransCompany"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/debitAmount"
+            android:gravity="center"
+            android:text="R"
+            android:textColor="@color/Green"
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:id="@+id/priceCredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/CnameTransCompany"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/priceCredit1"
+            android:gravity="center"
+            android:text="200"
+            android:layout_marginLeft="1dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:id="@+id/dateTrans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/debitAmount"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/imgCredit"
+            android:gravity="center"
+            android:text="Date : - "
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/dateTimeCredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/priceCredit"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/dateTrans"
+            android:gravity="center"
+            android:text="23-11-2023"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

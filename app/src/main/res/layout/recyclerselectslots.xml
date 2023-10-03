@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/StartDateSelectSlots"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:gravity="center_vertical"
+            android:text="5 July 2023"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+
+        <TextView
+            android:id="@+id/To"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/StartDateSelectSlots"
+            android:gravity="center_vertical"
+            android:text="To"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15dp"/>
+
+
+        <TextView
+            android:id="@+id/EndDateSelectSlots"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/To"
+            android:gravity="center_vertical"
+            android:text="5 July 2023"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_marginRight="15dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/slot_background"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"
+                tools:ignore="Suspicious0dp">
+
+
+                <TextView
+                    android:id="@+id/startTimeSelectSlot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="9:30"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/black"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="To"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"/>
+
+
+                <TextView
+                    android:id="@+id/endTimeSelectSlot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="6:30"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"/>
+
+
+
+
+            </LinearLayout>
+
+
+             <RadioGroup
+                 android:id="@+id/radioGroupBtnSlots"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:layout_marginStart="30dp"
+                 android:layout_marginEnd="10dp"
+                 android:gravity="center">
+
+             <RadioButton
+                 android:id="@+id/SelectSlotRadioBtn"
+                 android:layout_width="wrap_content"
+                 android:layout_height="match_parent"
+                 android:layout_gravity="right"
+                 android:buttonTint="@color/darkRed"
+                 android:textColor="@color/black"
+                 android:textSize="19dp" />
+
+             </RadioGroup>
+
+         </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/red"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
+    
+    
+
+
+</LinearLayout>
