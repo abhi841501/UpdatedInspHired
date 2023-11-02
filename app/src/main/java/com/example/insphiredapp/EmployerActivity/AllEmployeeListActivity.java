@@ -53,12 +53,12 @@ public class AllEmployeeListActivity extends AppCompatActivity {
     RecyclerView recyclerEmployeeList;
     SwitchCompat switchbtnPerDayFilter,switchbtnPerHourFilter;
     List<AllEmployeeDataList>allEmployeeDataLists = new ArrayList<>();
-    List<FilterModelListData> filterModelListData = new ArrayList<>();
     EmployeeListAdapter employeeListAdapter;
     AppCompatButton applyBtnPopUp;
     SeekBar seekBar;
     TextView seekbarValue;
-   private String StringBtnDay="0",StringBtnHour = "0",user_id;
+    String progressString;
+    private String StringBtnDay="0",user_id;
     List<String> CatList1 = new ArrayList<>();
     List<GetCategoryModelData> getCategoryModelDataList;
     private  String catIds;
@@ -111,7 +111,6 @@ public class AllEmployeeListActivity extends AppCompatActivity {
                 SpinnerFilter = addDetailsFilter.findViewById(R.id.SpinnerFilter);
                  locFilter = addDetailsFilter.findViewById(R.id.locFilter);
                 switchbtnPerDayFilter = addDetailsFilter.findViewById(R.id.switchbtnPerDayFilter);
-                switchbtnPerHourFilter = addDetailsFilter.findViewById(R.id.switchbtnPerHourFilter);
                 applyBtnPopUp = addDetailsFilter.findViewById(R.id.applyBtnPopUp);
                 SpinnerFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
@@ -123,6 +122,8 @@ public class AllEmployeeListActivity extends AppCompatActivity {
                             //CatList1.clear();
 
                         } else {
+
+                            catIds = String.valueOf(getCategoryModelDataList.get(i).getId());
                         }
                     }
                     @Override
@@ -139,7 +140,7 @@ public class AllEmployeeListActivity extends AppCompatActivity {
               //  window.setAttributes(params);
                 //    dialog.getWindow().setLayout(100, 100);
               //  addDetailsFilter.getWindow().setBackgroundDrawableResource(R.drawable.popup_background);
-                if(switchbtnPerDayFilter.isClickable())
+                if(switchbtnPerDayFilter.isChecked())
                 {
                     StringBtnDay = "1";
                 }
@@ -148,14 +149,14 @@ public class AllEmployeeListActivity extends AppCompatActivity {
                     StringBtnDay = "0";
                 }
 
-                if (switchbtnPerHourFilter.isClickable())
+               /* if (switchbtnPerHourFilter.isChecked())
                 {
                     StringBtnHour = "1";
                 }
 
                 else {
                     StringBtnHour = "0";
-                }
+                }*/
                 crossBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -165,7 +166,7 @@ public class AllEmployeeListActivity extends AppCompatActivity {
                 seekBar = addDetailsFilter.findViewById(R.id.seekBar);
                 seekBar.setProgress(0);
                 seekBar.incrementProgressBy(100);
-                seekBar.setMax(3000);
+                seekBar.setMax(5000);
                 seekbarValue = addDetailsFilter.findViewById(R.id.seekbarValue);
                 seekbarValue.setText(seekbarValue.getText().toString().trim());
 
@@ -175,7 +176,8 @@ public class AllEmployeeListActivity extends AppCompatActivity {
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                         progress = progress / 100;
                         progress = progress * 100;
-                        seekbarValue.setText(String.valueOf(progress));
+                        progressString = String.valueOf(progress);
+                        seekbarValue.setText(progressString);
                     }
                     @Override
                     public void onStartTrackingTouch(SeekBar seekBar) {
@@ -236,7 +238,7 @@ public class AllEmployeeListActivity extends AppCompatActivity {
 
                                 CatList1.add(getCategoryModelDataList.get(i).getCatName());
                                 //CatList1.clear();
-                                catIds = getCategoryModelDataList.get(i).getId();
+
                                 Log.e("catIds", "onResponse: "+catIds );
 
                             }
@@ -320,8 +322,7 @@ public class AllEmployeeListActivity extends AppCompatActivity {
         pd.setMessage("loading...");
         pd.show();
         Api service = Api_Client.getClient().create(Api.class);
-        retrofit2.Call<FilterModel> call = service.FILTER_MODEL_CALL(user_id,catIds,locFilter.getText().toString(),StringBtnHour,StringBtnDay,seekbarValue.getText().toString());
-
+        retrofit2.Call<FilterModel> call = service.FILTER_MODEL_CALL(catIds,locFilter.getText().toString(),StringBtnDay,seekbarValue.getText().toString());
         call.enqueue(new Callback<FilterModel>() {
             @Override
             public void onResponse(Call<FilterModel> call, Response<FilterModel> response) {
@@ -335,13 +336,12 @@ public class AllEmployeeListActivity extends AppCompatActivity {
                         Log.e("hello", "success: " +success );
 
                         if (success.equals("true")|| (success.equals("True"))) {
-                            filterModelListData = filterModel.getData();
-
                             Log.e("hello", "getData: " );
+                            allEmployeeDataLists = filterModel.getData();
+                            employeeListAdapter = new EmployeeListAdapter(AllEmployeeListActivity.this, allEmployeeDataLists,allEmployeeDataListsSearch);
+                            recyclerEmployeeList.setAdapter(employeeListAdapter);
+
                             // Id  = profileGetData.getId();
-
-
-
 
                             //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                             // Calling another activity

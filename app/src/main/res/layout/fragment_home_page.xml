@@ -1,381 +1,411 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#1281A0"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#1281A0"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="10"
+                    tools:ignore="MissingConstraints">
+
+
+                    <RelativeLayout
+                        android:id="@+id/relativeSearchEmployer"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_weight="7"
+                        android:background="@drawable/home_search_job"
+                        android:gravity="center_vertical"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center_vertical"
+                            android:text="Search Employee"
+                            android:textSize="13sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1.5"
+                        android:gravity="center"
+                        tools:ignore="MissingConstraints,Suspicious0dp">
+
+                        <ImageView
+                            android:id="@+id/chatImgEmployer"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/chat"
+                            tools:ignore="MissingConstraints,UseAppTint"></ImageView>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        tools:ignore="MissingConstraints,Suspicious0dp">
+
+                        <ImageView
+                            android:id="@+id/notificationEmployer"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/notification"
+                            android:tint="@color/white"
+                            tools:ignore="MissingConstraints,UseAppTint"></ImageView>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="5dp"
+                                android:src="@drawable/notification_count"
+                                tools:ignore="UseAppTint">
+
+
+                            </ImageView>
+
+                            <TextView
+                                android:id="@+id/notificationCountEmployer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginRight="10dp"
+                                android:text="15"
+                                android:textColor="@color/white"
+                                android:textSize="10dp">
+
+                            </TextView>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/employeehome" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
+                android:layout_height="150dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
                 android:orientation="horizontal"
-                android:weightSum="10"
-                tools:ignore="MissingConstraints">
+                android:weightSum="2">
 
-
-                <RelativeLayout
-                    android:id="@+id/relativeSearchEmployer"
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_weight="7"
-                    android:background="@drawable/home_search_job"
-                    android:gravity="center_vertical"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical"
-                        android:text="Search Employee"
-                        android:textSize="13sp" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1.5"
-                    android:gravity="center"
-                    tools:ignore="MissingConstraints,Suspicious0dp">
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/chatImgEmployer"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_centerInParent="true"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/chat"
-                        tools:ignore="MissingConstraints,UseAppTint"></ImageView>
+                    <LinearLayout
+                        android:id="@+id/linearOnGoingEmployee"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/background"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/relativeTotalHiredEmployee"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/circle_background"
+                            android:gravity="center_horizontal">
 
 
-                </RelativeLayout>
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:background="#E8F2FF"
+                                android:src="@drawable/applyjob" />
 
-                <RelativeLayout
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/relativeTotalHiredEmployee"
+                            android:gravity="center"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:text="Active employees"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    tools:ignore="MissingConstraints,Suspicious0dp">
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/notificationEmployer"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_centerInParent="true"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/notification"
-                        android:tint="@color/white"
-                        tools:ignore="MissingConstraints,UseAppTint"></ImageView>
-
-
-                </RelativeLayout>
-            </LinearLayout>
-
-        </RelativeLayout>
-
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/employeehome" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="15dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="15dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/linearOnGoingEmployee"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/background"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:id="@+id/relativeTotalHiredEmployee"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/circle_background"
-                        android:gravity="center_horizontal">
-
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_centerInParent="true"
-                            android:background="#E8F2FF"
-                            android:src="@drawable/applyjob" />
-
-
-                    </RelativeLayout>
-
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/linearEmployeeHistory"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_below="@+id/relativeTotalHiredEmployee"
-                        android:gravity="center"
-                        android:text="Active employees"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
+                        android:background="@drawable/background"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/relativeCircleEmp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/circle_background"
+                            android:gravity="center_horizontal">
 
 
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:background="#E8F2FF"
+                                android:src="@drawable/total_apply" />
+
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/relativeCircleEmp"
+                            android:gravity="center"
+                            android:text="History"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+
+
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/linearEmployeeHistory"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/background"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:id="@+id/relativeCircleEmp"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/circle_background"
-                        android:gravity="center_horizontal">
 
 
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_centerInParent="true"
-                            android:background="#E8F2FF"
-                            android:src="@drawable/total_apply" />
-
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@+id/relativeCircleEmp"
-                        android:gravity="center"
-                        android:text="History"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-
-                </LinearLayout>
             </LinearLayout>
 
 
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="15dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/linearPaymentsHome"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/background"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:id="@+id/relativeAllCd"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/circle_background"
-                        android:gravity="center_horizontal">
-
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_centerInParent="true"
-                            android:background="#E8F2FF"
-                            android:src="@drawable/payments" />
-
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@+id/relativeAllCd"
-                        android:gravity="center"
-                        android:text="Payments"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
                 android:layout_marginLeft="15dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
                 <LinearLayout
-                    android:id="@+id/linearSettings"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/background"
-                    android:orientation="vertical">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
-                    <RelativeLayout
-                        android:id="@+id/relativeMyJob"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/circle_background"
-                        android:gravity="center_horizontal">
-
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_centerInParent="true"
-                            android:background="#E8F2FF"
-                            android:backgroundTint="#E8F2FF"
-                            android:src="@drawable/settings" />
-
-
-                    </RelativeLayout>
-
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/linearPaymentsHome"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_below="@+id/relativeMyJob"
-                        android:gravity="center"
-                        android:text="Settings"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
+                        android:background="@drawable/background"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/relativeAllCd"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/circle_background"
+                            android:gravity="center_horizontal">
 
 
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:background="#E8F2FF"
+                                android:src="@drawable/payments" />
+
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/relativeAllCd"
+                            android:gravity="center"
+                            android:text="Payments"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/linearSettings"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/background"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/relativeMyJob"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/circle_background"
+                            android:gravity="center_horizontal">
+
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:background="#E8F2FF"
+                                android:backgroundTint="#E8F2FF"
+                                android:src="@drawable/settings" />
+
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/relativeMyJob"
+                            android:gravity="center"
+                            android:text="Settings"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+
+
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
+            <!-- <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="150dp"
+                 android:layout_marginLeft="15dp"
+                 android:layout_marginTop="15dp"
+                 android:layout_marginRight="15dp"
+                 android:orientation="horizontal"
+                 android:weightSum="2">
+
+                 <LinearLayout
+                     android:id="@+id/linearCreateJobs"
+                     android:layout_width="0dp"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:orientation="horizontal">
+
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:background="@drawable/background"
+                         android:orientation="vertical">
+
+                         <RelativeLayout
+                             android:layout_width="80dp"
+                             android:layout_height="80dp"
+                             android:layout_gravity="center_horizontal"
+                             android:layout_marginTop="20dp"
+                             android:background="@drawable/circle_background"
+                             android:gravity="center_horizontal">
+
+
+                             <ImageView
+                                 android:layout_width="50dp"
+                                 android:layout_height="50dp"
+                                 android:layout_centerInParent="true"
+                                 android:background="#E8F2FF"
+                                 android:src="@drawable/applyjob" />
+
+
+                         </RelativeLayout>
+
+                         <TextView
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent"
+                             android:layout_below="@+id/relativeAllCd"
+                             android:gravity="center"
+                             android:text="Create Jobs"
+                             android:textColor="@color/black"
+                             android:textSize="15dp" />
+
+
+                     </LinearLayout>
+                 </LinearLayout>
+
+             </LinearLayout>-->
+
         </LinearLayout>
-
-       <!-- <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="15dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <LinearLayout
-                android:id="@+id/linearCreateJobs"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/background"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/circle_background"
-                        android:gravity="center_horizontal">
-
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_centerInParent="true"
-                            android:background="#E8F2FF"
-                            android:src="@drawable/applyjob" />
-
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@+id/relativeAllCd"
-                        android:gravity="center"
-                        android:text="Create Jobs"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-
-                </LinearLayout>
-            </LinearLayout>
-
-        </LinearLayout>-->
-
-    </LinearLayout>
     </ScrollView>
 </LinearLayout>
 

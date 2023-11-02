@@ -14,9 +14,15 @@ public class RegisterModelData {
     @SerializedName("password")
     @Expose
     public String password;
-    @SerializedName("mobile")
+    @SerializedName("Mobile")
     @Expose
     public String mobile;
+    @SerializedName("intro_video")
+    @Expose
+    public String introVideo;
+    @SerializedName("identity")
+    @Expose
+    public String identity;
     @SerializedName("updated_at")
     @Expose
     public String updatedAt;
@@ -62,6 +68,22 @@ public class RegisterModelData {
         this.mobile = mobile;
     }
 
+    public String getIntroVideo() {
+        return introVideo;
+    }
+
+    public void setIntroVideo(String introVideo) {
+        this.introVideo = introVideo;
+    }
+
+    public String getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(String identity) {
+        this.identity = identity;
+    }
+
     public String getUpdatedAt() {
         return updatedAt;
     }
@@ -94,3 +116,4 @@ public class RegisterModelData {
         this.userType = userType;
     }
 }
+

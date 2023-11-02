@@ -30,9 +30,9 @@ public class Api_Client {
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(interceptor)
                     .retryOnConnectionFailure(true)
-                    .connectTimeout(500, TimeUnit.SECONDS)
-                    .readTimeout(500, TimeUnit.SECONDS)
-                    .writeTimeout(500, TimeUnit.SECONDS)
+                    .connectTimeout(200, TimeUnit.SECONDS)
+                    .readTimeout(200, TimeUnit.SECONDS)
+                    .writeTimeout(200, TimeUnit.SECONDS)
                     .build();
 
             Gson gson = new GsonBuilder()

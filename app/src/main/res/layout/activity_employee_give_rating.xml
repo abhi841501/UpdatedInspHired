@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmployeeActivity.EmployeeGiveRatingActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:id="@+id/backArrowFeedbackEmployee"
+                        android:layout_width="35dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="15sp"
+                        android:src="@drawable/ic_baseline_arrow_back_24"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:text="FeedBack"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/spareImageFeedBackEmployee"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/employee" />
+
+                    <TextView
+                        android:id="@+id/nameFeedbackEmployer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="Robert Mitchell"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="18dp" />
+
+        <!--            <RelativeLayout
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/background"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/profileNameFeedbackEmployer"
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Web Developer"
+                            android:textColor="@color/black"
+                            android:textSize="16dp" />
+
+                    </RelativeLayout>-->
+
+                    <androidx.appcompat.widget.AppCompatRatingBar
+                        android:id="@+id/rating_barFeedbackEmployee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:rating="0"
+                        android:scaleX="1"
+                        android:scaleY="1"
+                        android:numStars="5"
+                        android:stepSize="1.0"
+                        android:theme="@style/MyratingBar"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="Leave a Comment"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="18dp" />
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/leave_feedback">
+
+
+                        <EditText
+                            android:id="@+id/leaveCommentEditEmployee"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@null"
+                            android:hint="Leave a comment"
+                            android:textSize="15dp" />
+
+
+                    </RelativeLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/leaveFeedbackBtnEmployee"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@drawable/black_button_background"
+                        android:text="Leave a Review"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="18dp"></androidx.appcompat.widget.AppCompatButton>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+

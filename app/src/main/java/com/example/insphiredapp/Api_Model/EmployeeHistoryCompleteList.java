@@ -20,6 +20,9 @@ public class EmployeeHistoryCompleteList {
     @SerializedName("end_date")
     @Expose
     public String endDate;
+    @SerializedName("user_type")
+    @Expose
+    public String userType;
     @SerializedName("status")
     @Expose
     public Integer status;
@@ -76,87 +79,183 @@ public class EmployeeHistoryCompleteList {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getEmployerId() {
         return employerId;
+    }
+
+    public void setEmployerId(String employerId) {
+        this.employerId = employerId;
     }
 
     public String getEmployeeId() {
         return employeeId;
     }
 
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
     public String getStartDate() {
         return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
     public String getEndDate() {
         return endDate;
     }
 
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
     public Integer getStatus() {
         return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public String getCreatedAt() {
         return createdAt;
     }
 
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public String getUpdatedAt() {
         return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public Integer getDetailId() {
         return detailId;
     }
 
+    public void setDetailId(Integer detailId) {
+        this.detailId = detailId;
+    }
+
     public Integer getBookingAddressId() {
         return bookingAddressId;
+    }
+
+    public void setBookingAddressId(Integer bookingAddressId) {
+        this.bookingAddressId = bookingAddressId;
     }
 
     public String getEmpId() {
         return empId;
     }
 
+    public void setEmpId(String empId) {
+        this.empId = empId;
+    }
+
     public String getCustomerId() {
         return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
     public String getAmount() {
         return amount;
     }
 
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
     public Integer getBillStatus() {
         return billStatus;
+    }
+
+    public void setBillStatus(Integer billStatus) {
+        this.billStatus = billStatus;
     }
 
     public Integer getEmplId() {
         return emplId;
     }
 
+    public void setEmplId(Integer emplId) {
+        this.emplId = emplId;
+    }
+
     public String getImage() {
         return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getCompanyName() {
         return companyName;
     }
 
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
     public String getAddress() {
         return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Integer getUserId() {
         return userId;
     }
 
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
     public String getEmpSkills() {
         return empSkills;
+    }
+
+    public void setEmpSkills(String empSkills) {
+        this.empSkills = empSkills;
     }
 
     public Integer getCatId() {
         return catId;
     }
 
+    public void setCatId(Integer catId) {
+        this.catId = catId;
+    }
+
     public String getCatName() {
         return catName;
+    }
+
+    public void setCatName(String catName) {
+        this.catName = catName;
     }
 }

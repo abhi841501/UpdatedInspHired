@@ -50,6 +50,7 @@ public class ProfileFragmentEmployee extends Fragment implements RefreshInterfac
     private String UserType;
     GetEditEmployeeProfileData getEditEmployeeProfileData;
     RefreshInterface refreshInterface;
+    private String strUserId,strUserType;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -118,7 +119,10 @@ public class ProfileFragmentEmployee extends Fragment implements RefreshInterfac
                 yesDialogEmployee.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("AUTHENTICATION_FILE_NAME", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.clear(); // Clear all data in the SharedPreferences file
+                        editor.apply();
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // To clean up all activities
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

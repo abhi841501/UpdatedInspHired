@@ -59,6 +59,8 @@ public class FeedbackActivity extends AppCompatActivity {
         rating_barFeedback = findViewById(R.id.rating_barFeedback);
         leaveCommentEdit = findViewById(R.id.leaveCommentEdit);
 
+
+
         empId = getIntent().getStringExtra("EmployeeIdFeedback");
         StrName = getIntent().getStringExtra("FirstName");
         StrCatName = getIntent().getStringExtra("CTName");
@@ -67,8 +69,6 @@ public class FeedbackActivity extends AppCompatActivity {
         nameFeedback.setText(StrName);
         profileNameFeedback.setText(StrCatName);
         Glide.with(getApplicationContext()).load(Api_Client.BASE_URL_IMAGES+StrImg).placeholder(R.drawable.employee).into(spareImageFeedBack);
-
-
 
         backArrowFeedback.setOnClickListener(new View.OnClickListener() {
             @Override

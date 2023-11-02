@@ -5,18 +5,19 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.STORAGE"/>
+    <uses-permission android:name="android.permission.STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage"/>
-
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_MEDIA_*" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
@@ -27,6 +28,9 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
     -->
     <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature
         android:name="android.hardware.camera.any"
         android:required="true" />
     <uses-feature
@@ -35,27 +39,51 @@
 
     <application
         android:allowBackup="true"
-     android:requestLegacyExternalStorage="true" >
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:networkSecurityConfig="@xml/xml"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.InspHiredApp"
-        android:usesCleartextTraffic="true"
-        tools:replace="android:theme">
-
-        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
-     See README(https://goo.gl/l4GJaQ) for more. -->
+        android:requestLegacyExternalStorage="true">
+        <activity
+            android:name=".EmployeeActivity.LocationPickerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EmployeeActivity.SearchMapActivity"
+            android:exported="true" />
+        <activity
+            android:name=".FirstInterfaceApp.EmployerJobPostActivity"
+            android:exported="true" />
+        <activity
+            android:name=".FirstInterfaceApp.JobSeekerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".FirstInterfaceApp.FirstInterfaceAppActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EmployeeActivity.ShowReviewEmployeeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EmployeeActivity.EmployeeGiveRatingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EmployerActivity.IntroductionVideoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EmployeeActivity.LocationActivity"
+            android:exported="true" />
+        <!--
+     Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_baseline_notifications_active_24" />
-        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/skyBlue" />
-
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDqjJGDdAJK7mwVV43rtTx8h9D-UrAy-4c" />
 
         <service
             android:name=".MyFirebaseMessagingService"
@@ -65,6 +93,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <activity
             android:name=".EmployerActivity.PdfViewerActivity"
             android:exported="true" />
@@ -138,7 +167,7 @@
             android:name=".EmployerActivity.EditProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".EmployerActivity.OnGoingEmployeeActivity"
+            android:name=".EmployerActivity.ActiveEmployeeActivity"
             android:exported="true" />
         <activity
             android:name=".EmployerActivity.EmpDetailsActivity"
@@ -189,6 +218,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+
     </application>
 
 </manifest>

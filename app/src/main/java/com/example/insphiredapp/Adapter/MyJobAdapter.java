@@ -3,6 +3,7 @@ package com.example.insphiredapp.Adapter;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,8 @@ import com.bumptech.glide.Glide;
 import com.example.insphiredapp.Api_Model.JobCancelData;
 import com.example.insphiredapp.Api_Model.JobCancelModel;
 import com.example.insphiredapp.Api_Model.MyJobModelData;
+import com.example.insphiredapp.EmployeeActivity.EmployeeGiveRatingActivity;
+import com.example.insphiredapp.EmployeeActivity.ShowReviewEmployeeActivity;
 import com.example.insphiredapp.R;
 import com.example.insphiredapp.retrofit.Api;
 import com.example.insphiredapp.retrofit.Api_Client;
@@ -81,14 +84,13 @@ public class MyJobAdapter extends RecyclerView.Adapter<MyJobAdapter.ViewHolder> 
 
 
 
-/*
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.ViewReviewEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context,JobDiscriptionActivity.class);
+                Intent i = new Intent(context, ShowReviewEmployeeActivity.class);
                 context.startActivity(i);
             }
-        });*/
+        });
 
         holder.CancelBtnMYJobssss.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -252,7 +254,8 @@ public class MyJobAdapter extends RecyclerView.Adapter<MyJobAdapter.ViewHolder> 
     public  class ViewHolder extends  RecyclerView.ViewHolder {
         LinearLayout linearFindJobs;
         CircleImageView imgMyjobss;
-        TextView nameMyjobss,profileNamejobss,joiningDateHJobss,endDateHJobss,amountMyjobss,locationJobss,statusMyJobss,paymentMyJobss;
+        TextView nameMyjobss,profileNamejobss,joiningDateHJobss,endDateHJobss,amountMyjobss,locationJobss,
+                statusMyJobss,paymentMyJobss,ViewReviewEmployee;
         AppCompatButton CancelBtnMYJobssss;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -267,6 +270,7 @@ public class MyJobAdapter extends RecyclerView.Adapter<MyJobAdapter.ViewHolder> 
             statusMyJobss = itemView.findViewById(R.id.statusMyJobss);
             paymentMyJobss = itemView.findViewById(R.id.paymentMyJobss);
             CancelBtnMYJobssss = itemView.findViewById(R.id.CancelBtnMYJobssss);
+            ViewReviewEmployee = itemView.findViewById(R.id.ViewReviewEmployee);
 
         }
     }

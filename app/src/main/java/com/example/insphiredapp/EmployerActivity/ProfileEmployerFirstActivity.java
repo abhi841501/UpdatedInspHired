@@ -35,6 +35,7 @@ import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.insphiredapp.ApiModelEmployer.EmployerProfileModel;
+import com.example.insphiredapp.ApiModelEmployer.EmployerProfileModelData;
 import com.example.insphiredapp.Api_Model.GetProfileDetailsData;
 import com.example.insphiredapp.Api_Model.GetProfileDetailsModel;
 import com.example.insphiredapp.R;
@@ -77,6 +78,7 @@ public class ProfileEmployerFirstActivity extends AppCompatActivity {
     ImageView imageView;
     Button cameraButton, galleryButton;
     GetProfileDetailsData getProfileDetailsData;
+    EmployerProfileModelData employerProfileModelData;
     private Uri img;
     private ContentValues values5;
     private Uri imageUri5;
@@ -159,6 +161,7 @@ public class ProfileEmployerFirstActivity extends AppCompatActivity {
                 if (checkboxEmployerrrr.isChecked()) {
                     strCheck = "1";
                 }
+
                 if (validation()) {
 
                     addProfileEmployerApi();
@@ -222,6 +225,12 @@ public class ProfileEmployerFirstActivity extends AppCompatActivity {
                         String msg = employerProfileModel.getMessage();
                         if (success.equals("true") || success.equals("True")) {
                             Log.e("myprofile", "success " + success);
+                            employerProfileModelData = employerProfileModel.getData();
+                            String CEmail = employerProfileModelData.getCompanyEmail();
+                         /*   if(strEmail.equals(CompanyEmail))
+                            {
+                                Toast.makeText(getApplicationContext(), "Please Enter Your Company Email", Toast.LENGTH_SHORT).show();
+                            }*/
                             Toast.makeText(ProfileEmployerFirstActivity.this, msg, Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(ProfileEmployerFirstActivity.this, DashboardActivity.class);
@@ -427,30 +436,30 @@ public class ProfileEmployerFirstActivity extends AppCompatActivity {
     }
 
     private boolean validation() {
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         String MobilePattern = "[0-9]{10}";
-        if (userProfileFirst.getDrawable() == null) {
-            Toast.makeText(getApplicationContext(), "Please upload your image", Toast.LENGTH_SHORT).show();
-            return false;
 
-        } else if (CompNameee.getText().toString().equals("")) {
+        if (userProfileFirst.getDrawable()==null) {
+            Toast.makeText(getApplicationContext(), "Please upload your image", Toast.LENGTH_SHORT).show();
+             return false;
+        }
+       if (CompNameee.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "Please enter company name", Toast.LENGTH_SHORT).show();
             return false;
 
         } else if (CompEmail.getText().toString().equals("")) {
-            Toast.makeText(getApplicationContext(), "Please Enter  Email Address", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please enter  email address", Toast.LENGTH_SHORT).show();
             return false;
 
-        } else if (!CompEmail.getText().toString().matches(emailPattern)) {
-            Toast.makeText(getApplicationContext(), "Please Enter Valid Email Address", Toast.LENGTH_SHORT).show();
+        } else if (strEmail.equals(CompEmail.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Please enter your company email", Toast.LENGTH_SHORT).show();
             return false;
-
-        } else if (CompAddress.getText().toString().equals("")) {
+       }
+       else if (CompAddress.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "Please enter company  address", Toast.LENGTH_SHORT).show();
             return false;
 
         } else if (!checkboxEmployerrrr.isChecked()) {
-            Toast.makeText(getApplicationContext(), "Please select terms&condition", Toast.LENGTH_SHORT).show();
+           Toast.makeText(getApplicationContext(), "Please accept the terms & conditions", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

@@ -228,36 +228,51 @@
                 android:textColor="#32C657"
                 android:textStyle="bold" />
         </RelativeLayout>
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
 
             <TextView
                 android:id="@+id/paymentH"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_weight="2.5"
                 android:text="Payment  : -"
-                android:textColor="@color/greyDark" />
-
+                android:textColor="@color/greyDark"/>
 
             <TextView
                 android:id="@+id/paymentEEH"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_toRightOf="@+id/paymentH"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_weight="5"
                 android:text="Done"
                 android:textColor="@color/red"
-                android:textStyle="bold" />
-        </RelativeLayout>
+                android:textStyle="bold"  />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/feedbackBtnCompleteH"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:padding="5dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="2.5"
+                android:background="@drawable/black_button_background"
+                android:baselineAligned="false"
+                android:gravity="center"
+                android:text="Feedback"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
 
 
 

@@ -12,7 +12,7 @@ public class FilterModelListData {
     public String firstName;
     @SerializedName("id_number")
     @Expose
-    public Object idNumber;
+    public String idNumber;
     @SerializedName("email")
     @Expose
     public String email;
@@ -55,83 +55,151 @@ public class FilterModelListData {
     @SerializedName("created_at")
     @Expose
     public String createdAt;
+    @SerializedName("updated_at")
+    @Expose
+    public String updatedAt;
 
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public Object getIdNumber() {
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getIdNumber() {
         return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
     }
 
     public String getEmail() {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getEmpImage() {
         return empImage;
+    }
+
+    public void setEmpImage(String empImage) {
+        this.empImage = empImage;
     }
 
     public String getMobile() {
         return mobile;
     }
 
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
     public String getDailyRate() {
         return dailyRate;
+    }
+
+    public void setDailyRate(String dailyRate) {
+        this.dailyRate = dailyRate;
     }
 
     public String getEmpCv() {
         return empCv;
     }
 
+    public void setEmpCv(String empCv) {
+        this.empCv = empCv;
+    }
+
     public String getAddress() {
         return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getEmpSkills() {
         return empSkills;
     }
 
+    public void setEmpSkills(String empSkills) {
+        this.empSkills = empSkills;
+    }
+
     public Integer getCatId() {
         return catId;
+    }
+
+    public void setCatId(Integer catId) {
+        this.catId = catId;
     }
 
     public String getCatName() {
         return catName;
     }
 
+    public void setCatName(String catName) {
+        this.catName = catName;
+    }
+
     public String getStartDate() {
         return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
     public String getEndDate() {
         return endDate;
     }
 
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
     public Integer getIsFav() {
         return isFav;
+    }
+
+    public void setIsFav(Integer isFav) {
+        this.isFav = isFav;
     }
 
     public Integer getRating() {
         return rating;
     }
 
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+
     public String getCreatedAt() {
         return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    @SerializedName("updated_at")
-    @Expose
-    public String updatedAt;
-
-
-
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }

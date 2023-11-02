@@ -90,8 +90,7 @@
                                 android:layout_marginRight="10dp"
                                 android:layout_marginBottom="10dp"
                                 android:layout_weight="1"
-                                android:background="@color/white"
-                                android:src="@drawable/employee" />
+                                android:background="@color/white" />
 
 
                             <ImageView
@@ -210,14 +209,13 @@
                         android:textStyle="bold"></TextView>
 
 
-
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:background="@drawable/background_border"
-                        android:layout_marginTop="15dp"
                         android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp">
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/background_border">
 
                         <EditText
                             android:id="@+id/EmpUserIdpp"
@@ -227,11 +225,12 @@
                             android:layout_centerInParent="true"
                             android:layout_marginLeft="15dp"
                             android:background="@null"
-                            android:hint="Enter Employee Id"
+                            android:hint="Enter your ID number"
                             android:inputType="number"
                             android:textSize="15dp" />
 
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
@@ -240,7 +239,7 @@
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/background_border">
 
-                  <!--      <EditText
+                        <!--      <EditText
                             android:id="@+id/Category11"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -269,10 +268,10 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:background="@drawable/background_border"
-                        android:layout_marginTop="15dp"
                         android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp">
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/background_border">
 
                         <EditText
                             android:id="@+id/EmpDailyRatepp"
@@ -282,18 +281,19 @@
                             android:layout_centerInParent="true"
                             android:layout_marginLeft="15dp"
                             android:background="@null"
-                            android:hint="Enter Daily Rate"
+                            android:hint="Enter your daily rate"
                             android:inputType="number"
                             android:textSize="15dp" />
 
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:background="@drawable/background_border"
-                        android:layout_marginTop="15dp"
                         android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp">
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/background_border">
 
 
                         <TextView
@@ -307,7 +307,7 @@
                             android:text="Upload CV"
                             android:textSize="15dp" />
 
-                       <!-- <com.github.barteksc.pdfviewer.PDFView
+                        <!-- <com.github.barteksc.pdfviewer.PDFView
                             android:id="@+id/pdf_view"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -328,15 +328,15 @@
                             android:textStyle="bold" />
 
 
-
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:background="@drawable/background_border"
-                        android:layout_marginTop="15dp"
                         android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp">
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/background_border">
 
                         <EditText
                             android:id="@+id/EmpHistorypp"
@@ -346,18 +346,19 @@
                             android:layout_centerInParent="true"
                             android:layout_marginLeft="15dp"
                             android:background="@null"
-                            android:hint="Employment History"
+                            android:hint="Enter your employment experience"
                             android:inputType="textEmailAddress"
                             android:textSize="15dp" />
 
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:background="@drawable/background_border"
-                        android:layout_marginTop="15dp"
                         android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp">
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/background_border">
 
                         <EditText
                             android:id="@+id/EmpAddresspp"
@@ -367,11 +368,12 @@
                             android:layout_centerInParent="true"
                             android:layout_marginLeft="15dp"
                             android:background="@null"
-                            android:hint="Enter Address"
+                            android:hint="Enter your address"
                             android:inputType="textEmailAddress"
                             android:textSize="15dp" />
 
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp">
@@ -415,16 +417,15 @@
                         android:id="@+id/submitEmployeeProfile"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginBottom="30dp"
                         android:layout_marginStart="12dp"
+                        android:layout_marginTop="25dp"
                         android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="30dp"
                         android:background="@drawable/button_black_background"
                         android:text="Submit"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
-                        android:textSize="18dp">
-                    </androidx.appcompat.widget.AppCompatButton>
+                        android:textSize="18dp"></androidx.appcompat.widget.AppCompatButton>
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>

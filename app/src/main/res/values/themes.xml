@@ -15,17 +15,20 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="MyratingBar"  parent="android:style/Widget.Material.RatingBar">
+    <style name="MyratingBar" parent="android:style/Widget.Material.RatingBar">
         <!--none selected..-->
         <item name="colorControlNormal">@color/orange</item>
         <!--selected..-->
         <item name="colorControlActivated">@color/orange</item>
     </style>
+
     <style name="Theme.InspHiredApp.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="Theme.InspHiredApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Theme.InspHiredApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="MyDatePicker" parent="Theme.AppCompat.Light.Dialog">
@@ -42,4 +45,13 @@
         <item name="android:numbersTextColor">@color/black</item>
 
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

@@ -196,7 +196,6 @@ public class EmployeeHistoryActivity extends AppCompatActivity {
         Api service = Api_Client.getClient().create(Api.class);
         retrofit2.Call<EmployeeHistoryModel> call = service.EMPLOYEE_HISTORY_MODEL_CALL("employee_job_history?user_id="+UserId+"&switch_id="+0+"&user_type="+UserType);
 
-
         call.enqueue(new Callback<EmployeeHistoryModel>() {
             @Override
             public void onResponse(Call<EmployeeHistoryModel> call, Response<EmployeeHistoryModel> response) {

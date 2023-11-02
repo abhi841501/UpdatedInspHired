@@ -15,18 +15,34 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.insphiredapp.Api_Model.NotificationModel;
+import com.example.insphiredapp.Api_Model.NotificationModelData;
 import com.example.insphiredapp.EmployeeActivity.ChatCompanyActivity;
 import com.example.insphiredapp.EmployeeActivity.NotificationActivity;
 import com.example.insphiredapp.EmployerActivity.AllEmployeeListActivity;
 import com.example.insphiredapp.EmployerActivity.DashboardActivity;
 import com.example.insphiredapp.EmployerActivity.EmployerHistoryActivity;
-import com.example.insphiredapp.EmployerActivity.OnGoingEmployeeActivity;
+import com.example.insphiredapp.EmployerActivity.ActiveEmployeeActivity;
 import com.example.insphiredapp.EmployerActivity.SettingsActivity;
 import com.example.insphiredapp.R;
+import com.example.insphiredapp.retrofit.Api;
+import com.example.insphiredapp.retrofit.Api_Client;
+
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
     ImageView notificationEmployer,chatImgEmployer;
@@ -34,6 +50,8 @@ public class HomeFragment extends Fragment {
     RelativeLayout relativeSearchEmployer;
     private  String user_id,userType,employer;
     ImageView homeIcon,favouriteIcon,walletIcon,profileIcon;
+    TextView notificationCountEmployer;
+    List<NotificationModelData> notificationModelDataList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +64,7 @@ public class HomeFragment extends Fragment {
         linearSettings = view.findViewById(R.id.linearSettings);
         notificationEmployer = view.findViewById(R.id.notificationEmployer);
         linearEmployeeHistory = view.findViewById(R.id.linearEmployeeHistory);
+        notificationCountEmployer = view.findViewById(R.id.notificationCountEmployer);
         chatImgEmployer = view.findViewById(R.id.chatImgEmployer);
         relativeSearchEmployer = view.findViewById(R.id.relativeSearchEmployer);
         walletIcon = ((DashboardActivity)getContext()).findViewById(R.id.walletIcon);
@@ -59,6 +78,8 @@ public class HomeFragment extends Fragment {
         user_id= getUserIdData.getString("Id", "");
         userType= getUserIdData.getString("userType", "");
         Log.e("feedback", "change" + user_id);
+        getNotificationApi();
+
 
         relativeSearchEmployer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +109,7 @@ public class HomeFragment extends Fragment {
         linearOnGoingEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), OnGoingEmployeeActivity.class);
+                Intent intent = new Intent(getActivity(), ActiveEmployeeActivity.class);
                 startActivity(intent);
             }
         });
@@ -127,6 +148,96 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    private void  getNotificationApi() {
+        Api service = Api_Client.getClient().create(Api.class);
+        retrofit2.Call<NotificationModel> call = service.NOTIFICATION_MODEL_CALL("notification?user_id="+user_id+"&user_type="+userType);
+
+        call.enqueue(new Callback<NotificationModel>() {
+            @Override
+            public void onResponse(Call<NotificationModel> call, Response<NotificationModel> response) {
+                try {
+                    //if api response is successful ,taking message and success
+                    if (response.isSuccessful()) {
+                        NotificationModel notificationModel = response.body();
+                        String success = notificationModel.getSuccess();
+                        String msg =notificationModel.getMessage();
+                        Log.e("hello", "success: " +success );
+
+
+                        if (success.equals("true")|| (success.equals("True"))) {
+                            notificationModelDataList = notificationModel.getData();
+                            String countt = String.valueOf(notificationModel.getCount());
+                            notificationCountEmployer.setText(countt);
+
+
+
+
+                            // Toast.makeText(NotificationActivity.this, msg, Toast.LENGTH_SHORT).show();
+
+
+                            //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                            // Calling another activity
+
+                        } else {
+                            Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
+                        }
+
+                    } else {
+                        try {
+                            JSONObject jObjError = new JSONObject(response.errorBody().string());
+                            Toast.makeText(getActivity(), jObjError.getString("message"), Toast.LENGTH_LONG).show();
+                            switch (response.code()) {
+                                case 400:
+                                    Toast.makeText(getActivity(), "The server did not understand the request.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 401:
+                                    Toast.makeText(getActivity() ,"Unauthorized The requested page needs a username and a password.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 404:
+                                    Toast.makeText(getActivity(),"The server can not find the requested page.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 500:
+                                    Toast.makeText(getActivity(),"Internal Server Error..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 503:
+                                    Toast.makeText(getActivity(), "Service Unavailable..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 504:
+                                    Toast.makeText(getActivity(), "Gateway Timeout..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 511:
+                                    Toast.makeText(getActivity(), "Network Authentication Required ..", Toast.LENGTH_SHORT).show();
+                                    break;
+                                default:
+                                    Toast.makeText(getActivity(), "unknown error", Toast.LENGTH_SHORT).show();
+                                    break;
+                            }
+
+                        } catch (Exception e) {
+                            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                } catch (
+                        Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<NotificationModel> call, Throwable t) {
+                Log.e("conversion issue", t.getMessage());
+
+                if (t instanceof IOException) {
+                    Toast.makeText(getActivity(), "This is an actual network failure :( inform the user and possibly retry)", Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.e("conversion issue", t.getMessage());
+                    Toast.makeText(getActivity(), "Please Check your Internet Connection...." + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+    }
 
 
 }

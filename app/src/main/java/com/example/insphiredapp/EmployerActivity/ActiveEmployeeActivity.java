@@ -30,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class OnGoingEmployeeActivity extends AppCompatActivity {
+public class ActiveEmployeeActivity extends AppCompatActivity {
     RecyclerView recylerHiredList;
     ImageView arrowHired;
     List<GetEmployeeBookedListModelData> getEmployeeBookedListModelData = new ArrayList<>();
@@ -46,7 +46,7 @@ public class OnGoingEmployeeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_on_going_employee);
+        setContentView(R.layout.activity_active_employee);
 
         recylerHiredList = findViewById(R.id.recylerHiredList);
         arrowHired = findViewById(R.id.arrowHired);
@@ -59,7 +59,7 @@ public class OnGoingEmployeeActivity extends AppCompatActivity {
             }
         });
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(OnGoingEmployeeActivity.this, LinearLayoutManager.VERTICAL, false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ActiveEmployeeActivity.this, LinearLayoutManager.VERTICAL, false);
         recylerHiredList.setLayoutManager(layoutManager);
 
         searchQueryOnGoing.setIconified(false);
@@ -91,7 +91,7 @@ public class OnGoingEmployeeActivity extends AppCompatActivity {
 
     }
     private void  GetBookedEmployee() {
-        final ProgressDialog pd = new ProgressDialog(OnGoingEmployeeActivity.this);
+        final ProgressDialog pd = new ProgressDialog(ActiveEmployeeActivity.this);
         pd.setCancelable(false);
         pd.setMessage("loading...");
         pd.show();
@@ -116,7 +116,7 @@ public class OnGoingEmployeeActivity extends AppCompatActivity {
 
                             getEmployeeBookedListModelData=employeeBookedListModel.getData();
                            // getEmployeeBookedListModelData = employeeBookedListModel.getData();
-                            bookedEmployeeListAdapter = new BookedEmployeeListAdapter(OnGoingEmployeeActivity.this, getEmployeeBookedListModelData,backup);
+                            bookedEmployeeListAdapter = new BookedEmployeeListAdapter(ActiveEmployeeActivity.this, getEmployeeBookedListModelData,backup);
                             recylerHiredList.setAdapter(bookedEmployeeListAdapter);
 
                             Log.e("hello", "getData: " + getEmployeeBookedListModelData );
@@ -124,43 +124,43 @@ public class OnGoingEmployeeActivity extends AppCompatActivity {
 
 
                         } else {
-                            Toast.makeText(OnGoingEmployeeActivity.this, msg, Toast.LENGTH_LONG).show();
+                            Toast.makeText(ActiveEmployeeActivity.this, msg, Toast.LENGTH_LONG).show();
                             pd.dismiss();
                         }
 
                     } else {
                         try {
                             JSONObject jObjError = new JSONObject(response.errorBody().string());
-                            Toast.makeText(OnGoingEmployeeActivity.this, jObjError.getString("message"), Toast.LENGTH_LONG).show();
+                            Toast.makeText(ActiveEmployeeActivity.this, jObjError.getString("message"), Toast.LENGTH_LONG).show();
                             switch (response.code()) {
                                 case 400:
-                                    Toast.makeText(OnGoingEmployeeActivity.this, "The server did not understand the request.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ActiveEmployeeActivity.this, "The server did not understand the request.", Toast.LENGTH_SHORT).show();
                                     break;
                                 case 401:
-                                    Toast.makeText(OnGoingEmployeeActivity.this, "Unauthorized The requested page needs a username and a password.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ActiveEmployeeActivity.this, "Unauthorized The requested page needs a username and a password.", Toast.LENGTH_SHORT).show();
                                     break;
                                 case 404:
-                                    Toast.makeText(OnGoingEmployeeActivity.this, "The server can not find the requested page.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ActiveEmployeeActivity.this, "The server can not find the requested page.", Toast.LENGTH_SHORT).show();
                                     break;
                                 case 500:
-                                    Toast.makeText(OnGoingEmployeeActivity.this, "Internal Server Error..", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ActiveEmployeeActivity.this, "Internal Server Error..", Toast.LENGTH_SHORT).show();
                                     break;
                                 case 503:
-                                    Toast.makeText(OnGoingEmployeeActivity.this, "Service Unavailable..", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ActiveEmployeeActivity.this, "Service Unavailable..", Toast.LENGTH_SHORT).show();
                                     break;
                                 case 504:
-                                    Toast.makeText(OnGoingEmployeeActivity.this, "Gateway Timeout..", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ActiveEmployeeActivity.this, "Gateway Timeout..", Toast.LENGTH_SHORT).show();
                                     break;
                                 case 511:
-                                    Toast.makeText(OnGoingEmployeeActivity.this, "Network Authentication Required ..", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ActiveEmployeeActivity.this, "Network Authentication Required ..", Toast.LENGTH_SHORT).show();
                                     break;
                                 default:
-                                    Toast.makeText(OnGoingEmployeeActivity.this, "unknown error", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ActiveEmployeeActivity.this, "unknown error", Toast.LENGTH_SHORT).show();
                                     break;
                             }
 
                         } catch (Exception e) {
-                            Toast.makeText(OnGoingEmployeeActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(ActiveEmployeeActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
                 } catch (
@@ -174,11 +174,11 @@ public class OnGoingEmployeeActivity extends AppCompatActivity {
                 Log.e("conversion issue", t.getMessage());
 
                 if (t instanceof IOException) {
-                    Toast.makeText(OnGoingEmployeeActivity.this, "This is an actual network failure :( inform the user and possibly retry)", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ActiveEmployeeActivity.this, "This is an actual network failure :( inform the user and possibly retry)", Toast.LENGTH_SHORT).show();
                     pd.dismiss();
                 } else {
                     Log.e("conversion issue", t.getMessage());
-                    Toast.makeText(OnGoingEmployeeActivity.this, "Please Check your Internet Connection...." + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ActiveEmployeeActivity.this, "Please Check your Internet Connection...." + t.getMessage(), Toast.LENGTH_SHORT).show();
                     pd.dismiss();
                 }
             }

@@ -17,6 +17,7 @@ import android.provider.OpenableColumns;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -108,6 +109,39 @@ public class EmployeeProfileActivity extends AppCompatActivity {
         getEmployeeProfileApi();
         getCategoryApi();
 
+        Spinner11.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                //  Toast.makeText(getActivity(), "Country Spinner Working **********", Toast.LENGTH_SHORT).show();
+
+                String item = Spinner11.getSelectedItem().toString();
+                if (item.equals(getResources().getString(R.string.category)))
+                {
+
+                    // int spinnerPosition = dAdapter.getPosition(compareValue);
+                    // spinner_category.setSelection(Integer.parseInt("Select Category"));
+                }   else
+                {
+
+                    catIds = (String.valueOf(getCategoryModelDataList.get(i).getId()));
+                    //Toast.makeText(getActivity(), "leaveId :"+absencelist.get(i).getLeaveName()+leaveId, Toast.LENGTH_SHORT).show();
+
+                  /*  getStateSearch();
+                    Log.e("LIST_ID_COUNTRY",country_sp_id+"ID");
+                    switch_my.setChecked(false);*/
+
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+
+            }
+        });
+
+
         termCondEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,6 +158,7 @@ public class EmployeeProfileActivity extends AppCompatActivity {
                 } else {
                     strCheck = "0";
                 }
+               //validateSpinnerSelection();
                 if (validation()) {
                     PostProfileApi();
                 }
@@ -193,42 +228,47 @@ public class EmployeeProfileActivity extends AppCompatActivity {
         });
     }
 
+ /*   private void validateSpinnerSelection() {
+        String selectedOption = Spinner11.getSelectedItem().toString();
+       else {
+            // Proceed with the action using the selected option.
+            // You can use the value of 'selectedOption' here.
+           // Toast.makeText(this, "Selected option: " + selectedOption, Toast.LENGTH_SHORT).show();
+        }
+    }*/
+
     private boolean validation() {
-        if (addImage.getDrawable().equals("")) {
-            Toast.makeText(getApplicationContext(), "Please upload image", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        else if (EmpUserIdpp.getText().equals("")) {
-            Toast.makeText(getApplicationContext(), "Please enter EmpId", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-     /*   else if (Spinner11.getSelectedItem().equals("")) {
-            Toast.makeText(getApplicationContext(), "Please select category", Toast.LENGTH_SHORT).show();
-            return false;
-        }*/
+        String name = null;
+        String cvFilePathOrUri = null;
+        String selectedOption = Spinner11.getSelectedItem().toString();
 
-       else if (Spinner11.getSelectedItem().toString().trim().equals("Pick one")) {
-                Toast.makeText(EmployeeProfileActivity.this, "Please select category", Toast.LENGTH_SHORT).show();
-        }
-
-        else if (EmpDailyRatepp.getText().toString().equals("")) {
-            Toast.makeText(getApplicationContext(), "Please enter daily rate", Toast.LENGTH_SHORT).show();
+        if (userProfileEmployeeee.getDrawable()== null) {
+            Toast.makeText(getApplicationContext(), "Please upload your image", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (uploadCV.getDrawableState()== null) {
-            Toast.makeText(getApplicationContext(), "Please upload your cv", Toast.LENGTH_SHORT).show();
+        } else if (EmpUserIdpp.getText().toString().equals("")) {
+            Toast.makeText(getApplicationContext(), "Please enter empId", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (EmpHistorypp.getText().toString().equals("")) {
+        }    else if (selectedOption.equals(getResources().getString(R.string.category))) {
+            // Display a Toast message indicating that a selection is required.
+            Toast.makeText(this, "Please select category", Toast.LENGTH_SHORT).show();
+            return false;
+        }else if (EmpDailyRatepp.getText().toString().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Please enter the daily rate", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (profile_fileImage1 == null) {
+            Toast.makeText(getApplicationContext(), "Please upload your CV", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (EmpHistorypp.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please enter work experience", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (EmpAddresspp.getText().toString().equals("")) {
+        } else if (EmpAddresspp.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please enter your address", Toast.LENGTH_SHORT).show();
             return false;
+        } else if (!checkboxpp.isChecked()) {
+            Toast.makeText(getApplicationContext(), "Please accept the terms & conditions", Toast.LENGTH_SHORT).show();
+            return false;
         }
-            else if (!checkboxpp.isChecked())
-            {
-                Toast.makeText(getApplicationContext(), "Please select term&condition", Toast.LENGTH_SHORT).show();
-                return false;
-            }
+
         return true;
     }
 
@@ -275,7 +315,7 @@ public class EmployeeProfileActivity extends AppCompatActivity {
                             empName.setText(strFirstname);
                             empEmail.setText(strEmail);
                             empNo.setText(strPhone);
-                            Glide.with(getApplicationContext()).load(Api_Client.BASE_URL_IMAGES + profileEmployeeModelFirstData.getEmpImage()).placeholder(R.drawable.ic_launcher_foreground).into(userProfileEmployeeee);
+                           // Glide.with(getApplicationContext()).load(Api_Client.BASE_URL_IMAGES + profileEmployeeModelFirstData.getEmpImage()).placeholder(R.drawable.ic_launcher_foreground).into(userProfileEmployeeee);
 
                         } else {
                             // Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
@@ -389,7 +429,8 @@ public class EmployeeProfileActivity extends AppCompatActivity {
                             for (int i = 0; i<getCategoryModelDataList.size(); i++) {
 
                                 CatList.add(getCategoryModelDataList.get(i).getCatName());
-                                catIds = getCategoryModelDataList.get(i).getId();
+                               // catIds = (String.valueOf(getCategoryModelDataList.get(i).getId()));
+
                                 Log.e("catIds", "onResponse: "+catIds );
 
                             }
@@ -502,7 +543,7 @@ public class EmployeeProfileActivity extends AppCompatActivity {
         }
         RequestBody UserId = RequestBody.create(MediaType.parse("text/plain"), user_id);
         RequestBody EmpId = RequestBody.create(MediaType.parse("text/plain"), EmpUserIdpp.getText().toString());
-        RequestBody CatId = RequestBody.create(MediaType.parse("text/plain"), catIds);
+        RequestBody CatId = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(catIds));
         RequestBody DailyRate = RequestBody.create(MediaType.parse("text/plain"), EmpDailyRatepp.getText().toString());
         RequestBody EmpHistory = RequestBody.create(MediaType.parse("text/plain"), EmpHistorypp.getText().toString());
         RequestBody EmpAddress = RequestBody.create(MediaType.parse("text/plain"), EmpAddresspp.getText().toString());
@@ -519,8 +560,6 @@ public class EmployeeProfileActivity extends AppCompatActivity {
                 EmpHistory,
                 EmpAddress,
                 TermCondition);
-
-
 
         Log.e("check//", "UserId" + UserId);
         Log.e("check//", "profileImage" + profileImage);
@@ -543,7 +582,12 @@ public class EmployeeProfileActivity extends AppCompatActivity {
 
                         if (success.equals("True") || success.equals("true")) {
                             Log.e("myprofile", "success " + success);
+                            PostProfieEmpApi postProfieEmpApi = response.body();
+                             postProfieEmpDataApi = postProfieEmpApi.getData();
+
                             Toast.makeText(EmployeeProfileActivity.this, msg, Toast.LENGTH_SHORT).show();
+
+
 
                             Intent intent = new Intent(EmployeeProfileActivity.this, DashboardActivityEmployee.class);
                             startActivity(intent);
@@ -670,6 +714,8 @@ public class EmployeeProfileActivity extends AppCompatActivity {
                     .into(userProfileEmployeeee);
         }
 
+
+
         if (requestCode == 12 && resultCode == RESULT_OK) {
             Uri pdfUri = data.getData();
             String uriString = pdfUri.toString();
@@ -715,6 +761,7 @@ public class EmployeeProfileActivity extends AppCompatActivity {
             }
         }
 
+
     }
 
     private File saveBitmapToFile(Bitmap bitmap) {
@@ -757,16 +804,14 @@ public class EmployeeProfileActivity extends AppCompatActivity {
         return "";
     }
 
-    public class spinnerAdapter extends ArrayAdapter<String> {
+    public class spinnerAdapter extends ArrayAdapter<String>{
         private spinnerAdapter(Context context, int textViewResourceId, List<String> smonking) {
             super(context, textViewResourceId);
         }
-
         @Override
         public int getCount() {
             int count = super.getCount();
             return count > 0 ? count - 1 : count;
         }
     }
-
 }

@@ -143,7 +143,6 @@ public class EditProfileActivity extends AppCompatActivity {
         });
     }
     private boolean validation() {
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         String MobilePattern = "[0-9]{10}";
         if (editProfileFn.getText().toString().equals(""))
         {
@@ -155,11 +154,7 @@ public class EditProfileActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter email address", Toast.LENGTH_SHORT).show();
             return false;
         }
-        else if (!editProfileEmail.getText().toString().matches(emailPattern))
-        {
-            Toast.makeText(getApplicationContext(), "Please Enter Valid Email Address", Toast.LENGTH_SHORT).show();
-            return false;
-        }
+
 
         else if (editProfilePhone.getText().toString().equals(""))
         {

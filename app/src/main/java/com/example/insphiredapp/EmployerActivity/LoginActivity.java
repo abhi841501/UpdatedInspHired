@@ -45,9 +45,10 @@ public class LoginActivity extends AppCompatActivity {
     String strEmail, strPassword, Device_token, Id, userType, strAdmin="employer", strDefault,EmailLl,Passwordll,
             strEmpyeeId,strEmpyrrID,strCheck = "0";
     CheckBox rememberCheck;
-    String termCondition;
+    String termCondition,idDuty;
 
-
+    private static final String KEY_IS_LOGGED_IN = "is_logged_in";
+    boolean isLoggedIn = true;
     RadioGroup radioGroupBtnLogin;
 
      LoginModelData loginModelData;
@@ -166,8 +167,8 @@ public class LoginActivity extends AppCompatActivity {
                             SharedPreferences.Editor editor = getUserIdData.edit();
                             editor.putString("Id", String.valueOf(Id));
                             editor.putString("userType", String.valueOf(userType));
-                          //  Toast.makeText(LoginActivity.this,Id,Toast.LENGTH_LONG).show();
-                          //  Toast.makeText(LoginActivity.this,userType,Toast.LENGTH_LONG).show();
+                            editor.putBoolean(KEY_IS_LOGGED_IN, isLoggedIn);
+
 
                             if (isRemember) {
                                 editor.putString("email", String.valueOf(loginEmployeeEmail));
@@ -201,6 +202,7 @@ public class LoginActivity extends AppCompatActivity {
                                     intent.putExtra("strDefault",strDefault);
                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
+                                    //Toast.makeText(LoginActivity.this,Id,Toast.LENGTH_LONG).show();
                                 }
 
                                 else
@@ -221,7 +223,7 @@ public class LoginActivity extends AppCompatActivity {
                                     intent.putExtra("userType",userType);
                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
-                                 //   Toast.makeText(LoginActivity.this,Id,Toast.LENGTH_LONG).show();
+                                   // Toast.makeText(LoginActivity.this,Id,Toast.LENGTH_LONG).show();
                                 }
                                 else{
                                     Intent intent = new Intent(LoginActivity.this, EmployeeProfileActivity.class);
@@ -301,16 +303,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private boolean validation() {
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         if (loginEmployeeEmail.getText().toString().equals(""))
         {
             Toast.makeText(this, "Please Enter  Email Address", Toast.LENGTH_SHORT).show();
             return false;
         }
-       else if (!loginEmployeeEmail.getText().toString().matches(emailPattern)) {
-            Toast.makeText(this, "Please Enter Valid Email Address", Toast.LENGTH_SHORT).show();
-            return false;
-        } else if (loginEmployeePassword.getText().toString().equals("")) {
+     else if (loginEmployeePassword.getText().toString().equals("")) {
             Toast.makeText(LoginActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
             return false;
         }

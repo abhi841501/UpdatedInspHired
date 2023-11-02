@@ -31,19 +31,25 @@ import com.example.insphiredapp.Api_Model.GetReviewModel;
 import com.example.insphiredapp.Api_Model.GetWithDrawModel;
 import com.example.insphiredapp.Api_Model.GiveRatingModel;
 import com.example.insphiredapp.Api_Model.JobCancelModel;
+import com.example.insphiredapp.Api_Model.LocationModel;
 import com.example.insphiredapp.Api_Model.LoginModel;
 import com.example.insphiredapp.Api_Model.MsgEmployeeModel;
 import com.example.insphiredapp.Api_Model.MyJobModel;
+import com.example.insphiredapp.Api_Model.NotificationModel;
 import com.example.insphiredapp.Api_Model.PaymentHistoryModel;
 import com.example.insphiredapp.Api_Model.PostEmailOtpModel;
 import com.example.insphiredapp.Api_Model.PostProfieEmpApi;
 import com.example.insphiredapp.Api_Model.RegisterModel;
+import com.example.insphiredapp.Api_Model.RequestTimeSlotModel;
 import com.example.insphiredapp.Api_Model.ResetPasswordModel;
 import com.example.insphiredapp.Api_Model.ShowCvModel;
 import com.example.insphiredapp.Api_Model.UpComingJobModel;
 import com.example.insphiredapp.Api_Model.UserChatModel;
 import com.example.insphiredapp.Api_Model.VerifyOtpModel;
 import com.example.insphiredapp.Api_Model.WithdrawModel;
+import com.example.insphiredapp.FeedbackEmployee.EmployeeRating;
+import com.example.insphiredapp.FeedbackEmployee.EmployeeRatingData;
+import com.example.insphiredapp.ShowReviewApiModel.ShowEmployeeReview;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -58,15 +64,16 @@ import retrofit2.http.Url;
 
 public interface Api {
 
-
-    @FormUrlEncoded
+    @Multipart
     @POST("user_register")
     Call<RegisterModel> REGISTER_MODEL_CALL(
-            @Field("first_name") String firstname,
-            @Field("email") String email,
-            @Field("password") String password,
-            @Field("Mobile") String mobile,
-            @Field("user_type") String userType);
+            @Part("first_name") RequestBody firstname,
+            @Part("email") RequestBody email,
+            @Part("password") RequestBody password,
+            @Part("Mobile") RequestBody mobile,
+            @Part MultipartBody.Part intro_ideo,
+            @Part MultipartBody.Part id_pdf,
+            @Part("user_type") RequestBody userType);
 
     @FormUrlEncoded
     @POST("user_login")
@@ -91,10 +98,8 @@ public interface Api {
                                                            @Part("address") RequestBody companyAddress,
                                                            @Part("term_condition") RequestBody term_condition);
 
-
     @GET()
     Call<GetProfileDetailsModel> GET_PROFILE_DETAILS_MODEL_CALL(@Url String str);
-
 
     @Multipart
     @POST("edit_profile")
@@ -107,13 +112,16 @@ public interface Api {
                                                                     @Part("location") RequestBody company_name,
                                                                     @Part("user_type") RequestBody user_type);
 
-
     @GET("all_category")
     Call<GetCategoryModel> GET_CATEGORY_MODEL_CALL();
 
-
     @GET()
     Call<EmployeeProfileModelFirst> EMPLOYEE_PROFILE_MODEL_FIRST_CALL(@Url String str);
+
+
+/*
+    @GET()
+    Call<GetProfieEmpApi>GET_PROFIE_EMP_API_CALL(@Url String str);*/
 
     @Multipart
     @POST("user_update_profile")
@@ -127,12 +135,6 @@ public interface Api {
                                                     @Part("location") RequestBody location,
                                                     @Part("term_condition") RequestBody term_condition);
 
-
-/*
-    @GET()
-    Call<GetProfieEmpApi>GET_PROFIE_EMP_API_CALL(@Url String str);*/
-
-
     @Multipart
     @POST("edit_profile")
     Call<EmployeeEditProfileModel> EMPLOYEE_EDIT_PROFILE_MODEL_CALL(@Part("user_id") RequestBody user_id,
@@ -144,10 +146,8 @@ public interface Api {
                                                                     @Part("location") RequestBody location,
                                                                     @Part("user_type") RequestBody user_type);
 
-
     @GET()
     Call<GetEditEmployeeProfileModel> GET_EDIT_EMPLOYEE_PROFILE_MODEL_CALL(@Url String str);
-
 
     @FormUrlEncoded
     @POST("user_forgot_password")
@@ -161,15 +161,12 @@ public interface Api {
     @GET()
     Call<VerifyOtpModel> VERIFY_OTP_MODEL_CALL(@Url String str);
 
-
-
     @FormUrlEncoded
     @POST("forgot_password_save")
     Call<ResetPasswordModel> RESET_PASSWORD_MODEL_CALL(@Field("new_password") String new_password,
                                                        @Field("confirm_password") String C_password,
                                                        @Field("user_id") String user,
                                                        @Field("user_type") String user_type);
-
 
     @GET()
     Call<AllEmployeeListModel> ALL_EMPLOYEE_LIST_MODEL_CALL(@Url String str);
@@ -180,10 +177,8 @@ public interface Api {
                                                                  @Field("employer_id") String employer_id,
                                                                  @Field("user_type") String user_type);
 
-
     @GET()
     Call<GetFavouriteModel> GET_FAVOURITE_MODEL_CALL(@Url String str);
-
 
     @FormUrlEncoded
     @POST("save_rating")
@@ -194,18 +189,22 @@ public interface Api {
                                                  @Field("user_type") String user_type);
 
     @FormUrlEncoded
+    @POST("save_rating")
+    Call<EmployeeRating> EMPLOYEE_RATING_CALL(@Field("user_id") String user_id,
+                                              @Field("employer_id") String employee_id,
+                                              @Field("rating") String rating,
+                                              @Field("comment") String comment,
+                                              @Field("user_type") String user_type);
+
+    @FormUrlEncoded
     @POST("filter_data")
-    Call<FilterModel> FILTER_MODEL_CALL(@Field("user_id") String user_id,
-                                        @Field("cat_id") String cat_id,
+    Call<FilterModel> FILTER_MODEL_CALL(@Field("cat_id") String cat_id,
                                         @Field("location") String location,
-                                        @Field("per_hours") String per_hours,
                                         @Field("per_day") String per_day,
                                         @Field("price_range") String price_range);
 
-
     @GET()
     Call<GetBookingDetailModel> GET_BOOKING_DETAIL_MODEL_CALL(@Url String str);
-
 
     @FormUrlEncoded
     @POST("employee_book")
@@ -215,21 +214,21 @@ public interface Api {
                                           @Field("time_slot_id") String time_slot_id,
                                           @Field("user_type") String user_type);
 
-
     @GET()
     Call<EmployeeBookedListModel> EMPLOYEE_BOOKED_LIST_MODEL_CALL(@Url String str);
-
 
     @FormUrlEncoded
     @POST("employee_cancel")
     Call<CancelModel> CANCEL_MODEL_CALL(@Field("id") String id);
-
 
     @GET()
     Call<GetEmployeeHistoryModel> GET_EMPLOYEE_HISTORY_MODEL_CALL(@Url String str);
 
     @GET()
     Call<GetReviewModel> GET_REVIEW_MODEL_CALL(@Url String str);
+
+    @GET()
+    Call<ShowEmployeeReview> SHOW_EMPLOYEE_REVIEW_CALL(@Url String str);
 
     @GET()
     Call<PaymentHistoryModel> PAYMENT_HISTORY_MODEL_CALL(@Url String str);
@@ -239,19 +238,16 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("job_cancel")
-    Call<JobCancelModel>JOB_CANCEL_MODEL_CALL(@Field("booking_id") String booking_id);
-
+    Call<JobCancelModel> JOB_CANCEL_MODEL_CALL(@Field("booking_id") String booking_id);
 
     @GET()
     Call<UpComingJobModel> UP_COMING_JOB_MODEL_CALL(@Url String str);
-
 
     @GET()
     Call<ChatCompanyModel> CHAT_COMPANY_MODEL_CALL(@Url String str);
 
     @GET()
     Call<MsgEmployeeModel> MSG_EMPLOYEE_CALL(@Url String str);
-
 
     @FormUrlEncoded
     @POST("user_chat")
@@ -260,10 +256,8 @@ public interface Api {
                                              @Field("chat_message") String chat_message,
                                              @Field("user_type") String userType);
 
-
     @GET()
     Call<EmployerChatEmpModel> EMPLOYER_CHAT_EMP_MODEL_CALL(@Url String str);
-
 
     @FormUrlEncoded
     @POST("withdraw_amount")
@@ -283,13 +277,20 @@ public interface Api {
                                                  @Field("start_date") String start_date,
                                                  @Field("end_date") String end_date,
                                                  @Field("start_time") String start_time,
-                                                 @Field("end_time") String end_time);
-/*
+                                                 @Field("end_time") String end_time,
+                                                 @Field("location ")String location);
 
-    @Headers({"Content-Type:application/json"})
-    @POST("create_timeslot")
-    Call<CreateSlotModel> CREATE_SLOT_MODEL_CALL(@Body String params);
-*/
+    @FormUrlEncoded
+    @POST("time_slot_change_request")
+    Call<RequestTimeSlotModel> REQUEST_TIME_SLOT_MODEL_CALL(@Field("time_slot_id") String time_slot_id,
+                                                            @Field("user_id") String user_id,
+                                                            @Field("employee_id") String employee_id,
+                                                            @Field("start_date") String start_date,
+                                                            @Field("end_date") String end_date,
+                                                            @Field("user_type") String user_type);
+
+    @GET("location")
+    Call<LocationModel> LOCATION_MODEL_CALL();
 
 
     @GET()
@@ -312,6 +313,9 @@ public interface Api {
 
     @GET()
     Call<ShowCvModel> SHOW_CV_MODEL_CALL(@Url String str);
+
+    @GET()
+    Call<NotificationModel>NOTIFICATION_MODEL_CALL(@Url String str);
 
 
 }

@@ -16,6 +16,22 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+
+                <ImageView
+                    android:id="@+id/regArrowBackImg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    app:tint="@color/black" />
+            </RelativeLayout>
+
 
             <ImageView
                 android:layout_width="250dp"
@@ -75,6 +91,8 @@
                 app:cardCornerRadius="15dp"
                 app:cardElevation="40dp">
 
+
+
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -100,10 +118,24 @@
 
                         <RelativeLayout
                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="3dp"
+                                android:layout_marginTop="40dp"
+                                android:src="@drawable/pin_code"
+                                android:tint="@color/Red"
+                                tools:ignore="UseAppTint" />
+
+                            <RelativeLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="45dp"
-                            android:layout_marginStart="15dp"
+                            android:layout_marginStart="22dp"
                             android:layout_marginTop="30dp"
-                            android:layout_marginEnd="15dp"
+                            android:layout_marginEnd="22dp"
                             android:background="@drawable/login_backgrounf">
 
                             <EditText
@@ -114,12 +146,14 @@
                                 android:layout_centerInParent="true"
                                 android:layout_marginLeft="15dp"
                                 android:background="@null"
-                                android:hint="Enter first name"
+                                android:hint="Enter your name"
                                 android:inputType="textPersonName"
                                 android:padding="6dp"
                                 android:textSize="15dp" />
 
                         </RelativeLayout>
+                        </RelativeLayout>
+
 
                         <!--
                                         <RelativeLayout
@@ -148,10 +182,23 @@
 
                         <RelativeLayout
                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/pin_code"
+                            android:tint="@color/Red"
+                            tools:ignore="UseAppTint" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:layout_marginStart="15dp"
+                            android:layout_marginStart="22dp"
                             android:layout_marginTop="25dp"
-                            android:layout_marginEnd="15dp"
+                            android:layout_marginEnd="22dp"
                             android:background="@drawable/login_backgrounf">
 
                             <EditText
@@ -163,34 +210,157 @@
                                 android:layout_marginLeft="15dp"
                                 android:background="@null"
                                 android:hint="Enter your email"
-                                android:inputType="textEmailAddress"
                                 android:padding="6dp"
                                 android:textSize="15dp" />
 
                         </RelativeLayout>
-
+                        </RelativeLayout>
 
                         <RelativeLayout
                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/pin_code"
+                            android:tint="@color/Red"
+                            tools:ignore="UseAppTint" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="22dp"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/login_backgrounf">
+
+                                <EditText
+                                    android:id="@+id/phoneNumber"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_toLeftOf="@+id/sendOTPReg"
+                                    android:background="@null"
+                                    android:hint="Enter phone number"
+                                    android:inputType="number"
+                                    android:maxLength="10"
+                                    android:padding="6dp"
+                                    android:textSize="15dp" />
+
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/sendOTPReg"
+                                    android:layout_width="70dp"
+                                    android:layout_height="32dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginEnd="12dp"
+                                    android:background="@drawable/reg_sendbtn_background"
+                                    android:text="Send otp"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="12dp"></androidx.appcompat.widget.AppCompatButton>
+
+
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/relativeUploadd"
+                            android:layout_width="match_parent"
+                            android:visibility="gone"
+                            android:layout_height="wrap_content">
+
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/pin_code"
+                            android:tint="@color/Red"
+                            tools:ignore="UseAppTint" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="22dp"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginEnd="22dp"
+                                android:background="@drawable/login_backgrounf">
+
+                                <TextView
+                                    android:id="@+id/ProfilePreviousDetailstxt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_toLeftOf="@+id/uploadPdetailsBtn"
+                                    android:gravity="center_vertical"
+                                    android:scrollbars="vertical"
+                                    android:text="Upload your previous company details"
+                                    android:textSize="14dp" />
+
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/uploadPdetailsBtn"
+                                    android:layout_width="60dp"
+                                    android:layout_height="32dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginEnd="12dp"
+                                    android:background="@drawable/reg_sendbtn_background"
+                                    android:text="Upload"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="12dp"></androidx.appcompat.widget.AppCompatButton>
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/RelativeUploadVideo"
+                            android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:layout_marginStart="12dp"
+                            android:layout_marginStart="22dp"
+                            android:visibility="gone"
                             android:layout_marginTop="25dp"
-                            android:layout_marginEnd="12dp"
+                            android:layout_marginEnd="22dp"
                             android:background="@drawable/login_backgrounf">
 
-                            <EditText
-                                android:id="@+id/editProfilePhone"
-                                android:layout_width="match_parent"
+                            <TextView
+                                android:id="@+id/editProfileUploadVideo"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_alignParentLeft="true"
                                 android:layout_centerInParent="true"
                                 android:layout_marginLeft="15dp"
-                                android:background="@null"
-                                android:hint="Enter phone number"
-                                android:inputType="number"
-                                android:maxLength="10"
-                                android:padding="6dp"
+                                android:gravity="center"
+                                android:hint="Upload video"
                                 android:textSize="15dp" />
+
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/uploadReg"
+                                android:layout_width="80dp"
+                                android:layout_height="32dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginEnd="12dp"
+                                android:background="@drawable/reg_sendbtn_background"
+                                android:text="Upload"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="14dp"></androidx.appcompat.widget.AppCompatButton>
 
 
                         </RelativeLayout>
@@ -198,10 +368,24 @@
 
                         <RelativeLayout
                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/pin_code"
+                            android:tint="@color/Red"
+                            tools:ignore="UseAppTint" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:layout_marginStart="15dp"
+                            android:layout_marginStart="22dp"
                             android:layout_marginTop="25dp"
-                            android:layout_marginEnd="15dp"
+                            android:layout_marginEnd="22dp"
                             android:background="@drawable/login_backgrounf">
 
                             <EditText
@@ -244,13 +428,28 @@
 
 
                         </RelativeLayout>
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/pin_code"
+                            android:tint="@color/Red"
+                            tools:ignore="UseAppTint" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:layout_marginStart="15dp"
+                            android:layout_marginStart="22dp"
                             android:layout_marginTop="25dp"
-                            android:layout_marginEnd="15dp"
+                            android:layout_marginEnd="22dp"
                             android:background="@drawable/login_backgrounf">
 
                             <EditText
@@ -261,7 +460,7 @@
                                 android:layout_centerInParent="true"
                                 android:layout_marginLeft="15dp"
                                 android:background="@null"
-                                android:hint="Confirm Password"
+                                android:hint="Confirm password"
                                 android:inputType="textPassword"
                                 android:padding="6dp"
                                 android:textSize="15dp" />
@@ -293,7 +492,7 @@
                                 app:tint="@color/darkgrey" />
 
                         </RelativeLayout>
-
+                        </RelativeLayout>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/regSignUpButton"
@@ -304,7 +503,7 @@
                             android:layout_marginTop="25dp"
                             android:layout_marginEnd="12dp"
                             android:background="@drawable/round_corner_login"
-                            android:text="SignUp"
+                            android:text="Register"
                             android:textAllCaps="false"
                             android:textColor="@color/white"
                             android:textSize="18dp"></androidx.appcompat.widget.AppCompatButton>

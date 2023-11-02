@@ -6,7 +6,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class FilterModel {
-
     @SerializedName("success")
     @Expose
     public String success;
@@ -15,7 +14,7 @@ public class FilterModel {
     public String message;
     @SerializedName("data")
     @Expose
-    public List<FilterModelListData> data;
+    public List<AllEmployeeDataList> data;
 
     public String getSuccess() {
         return success;
@@ -33,11 +32,11 @@ public class FilterModel {
         this.message = message;
     }
 
-    public List<FilterModelListData> getData() {
+    public List<AllEmployeeDataList> getData() {
         return data;
     }
 
-    public void setData(List<FilterModelListData> data) {
+    public void setData(List<AllEmployeeDataList> data) {
         this.data = data;
     }
 }

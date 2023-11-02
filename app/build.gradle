@@ -54,6 +54,7 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.6.0'
 implementation 'androidx.annotation:annotation-jvm:1.6.0'
     implementation 'com.google.firebase:firebase-messaging-ktx:23.2.1'
+    implementation 'androidx.compose.ui:ui-text-android:1.5.1'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -113,6 +114,15 @@ implementation 'androidx.annotation:annotation-jvm:1.6.0'
     implementation 'io.reactivex:rxjava:1.1.0'
 
 
+
+    //for maps
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
+
+    //for material searchView
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
+
     implementation 'com.github.shelake-chetan:CustomToast:1.0.2'
 
     //implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
@@ -121,11 +131,10 @@ implementation 'androidx.annotation:annotation-jvm:1.6.0'
     //glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
    // implementation 'com.github.barteksc:android-pdf-viewer:3.2.0'
-
     implementation 'com.google.firebase:firebase-messaging:20.0.0'
+    implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
-
     implementation 'com.google.firebase:firebase-storage:19.1.1'
 
     constraints {

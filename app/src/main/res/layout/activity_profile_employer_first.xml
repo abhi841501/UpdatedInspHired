@@ -90,8 +90,7 @@
                                 android:layout_marginRight="10dp"
                                 android:layout_marginBottom="10dp"
                                 android:layout_weight="1"
-                                android:background="@color/white"
-                                android:src="@drawable/ic_launcher_background" />
+                                android:background="@color/white" />
 
 
                             <ImageView

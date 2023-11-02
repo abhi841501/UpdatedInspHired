@@ -1,5 +1,8 @@
 package com.example.insphiredapp.EmployerActivity;
 
+import static com.example.insphiredapp.R.color.skyBlue;
+import static com.example.insphiredapp.R.color.white;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -33,6 +36,7 @@ import com.example.insphiredapp.Adapter.NonNull;
 import com.example.insphiredapp.Api_Model.EmployeeEditProfileModel;
 import com.example.insphiredapp.Api_Model.GetEditEmployeeProfileData;
 import com.example.insphiredapp.Api_Model.GetEditEmployeeProfileModel;
+import com.example.insphiredapp.EmployerFragment.HomeFragment;
 import com.example.insphiredapp.R;
 import com.example.insphiredapp.retrofit.Api;
 import com.example.insphiredapp.retrofit.Api_Client;
@@ -98,8 +102,7 @@ public class ProfileActivity extends AppCompatActivity {
         UpdateProfileeedit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (validation())
-                {
+                if (validation()) {
                     EditEmployeeProfileApi();
                 }
 
@@ -148,39 +151,23 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private boolean validation() {
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         String MobilePattern = "[0-9]{10}";
-        if (PNameEEdit.getText().toString().equals(""))
-        { Toast.makeText(getApplicationContext(), "please enter name", Toast.LENGTH_SHORT).show();
+        if (PNameEEdit.getText().toString().equals("")) {
+            Toast.makeText(getApplicationContext(), "please enter name", Toast.LENGTH_SHORT).show();
             return false;
-        }
-        else if (PEmailEEdit.getText().toString().equals(""))
-        {
+        } else if (PEmailEEdit.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "Please enter email address", Toast.LENGTH_SHORT).show();
             return false;
-        }
-        else if (!PEmailEEdit.getText().toString().matches(emailPattern))
-        {
-            Toast.makeText(getApplicationContext(), "Please Enter Valid Email Address", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        else if (PPhoneEEdit.getText().toString().equals(""))
-        {
+        }  else if (PPhoneEEdit.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "Please enter  phone number", Toast.LENGTH_SHORT).show();
             return false;
-        }
-        else if (!PPhoneEEdit.getText().toString().matches(MobilePattern))
-        {
+        } else if (!PPhoneEEdit.getText().toString().matches(MobilePattern)) {
             Toast.makeText(getApplicationContext(), "Please enter valid 10 digit phone number", Toast.LENGTH_SHORT).show();
             return false;
-        }
-        else if (PCompanyAddEdit.getText().toString().equals(""))
-        {
+        } else if (PCompanyAddEdit.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "please enter address", Toast.LENGTH_SHORT).show();
             return false;
-        }
-        else if (PDailyRateAddress.getText().toString().equals(""))
-        {
+        } else if (PDailyRateAddress.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "please enter daily rate", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -216,7 +203,7 @@ public class ProfileActivity extends AppCompatActivity {
         pd.setMessage("loading...");
         pd.show();
         Api service = Api_Client.getClient().create(Api.class);
-        retrofit2.Call<GetEditEmployeeProfileModel> call = service.GET_EDIT_EMPLOYEE_PROFILE_MODEL_CALL("user_show_data?user_id="+user_id);
+        retrofit2.Call<GetEditEmployeeProfileModel> call = service.GET_EDIT_EMPLOYEE_PROFILE_MODEL_CALL("user_show_data?user_id=" + user_id);
 
         call.enqueue(new Callback<GetEditEmployeeProfileModel>() {
             @Override
@@ -513,7 +500,6 @@ public class ProfileActivity extends AppCompatActivity {
         }
         return "";
     }
-
 
 
 

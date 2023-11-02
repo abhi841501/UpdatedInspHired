@@ -1,5 +1,7 @@
 package com.example.insphiredapp.EmployerFragment;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -11,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +25,6 @@ import com.example.insphiredapp.Api_Model.GetProfileDetailsModel;
 import com.example.insphiredapp.EmployerActivity.ChangePasswordActivity;
 import com.example.insphiredapp.EmployerActivity.EditProfileActivity;
 import com.example.insphiredapp.EmployerActivity.LoginActivity;
-import com.example.insphiredapp.EmployerActivity.OnGoingEmployeeActivity;
 import com.example.insphiredapp.R;
 import com.example.insphiredapp.retrofit.Api;
 import com.example.insphiredapp.retrofit.Api_Client;
@@ -53,7 +53,9 @@ public class ProfileFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_profile, container, false);
         linearEditProfile = view.findViewById(R.id.linearEditProfile);
         linearChangePassword = view.findViewById(R.id.linearChangePassword);
-        linearTotalHC1 = view.findViewById(R.id.linearTotalHC1);
+       //
+        //
+        // linearTotalHC1 = view.findViewById(R.id.linearTotalHC1);
         linearLogout = view.findViewById(R.id.linearLogout);
         noDialog = view.findViewById(R.id.noDialog);
         yesDialog = view.findViewById(R.id.yesDialog);
@@ -84,14 +86,14 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        linearTotalHC1.setOnClickListener(new View.OnClickListener() {
+      /*  linearTotalHC1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), OnGoingEmployeeActivity.class);
                 startActivity(intent);
             }
         });
-
+*/
         linearLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,6 +109,11 @@ public class ProfileFragment extends Fragment {
                 yesDialog.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("AUTHENTICATION_FILE_NAME", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.clear(); // Clear all data in the SharedPreferences file
+                        editor.apply();
+                        editor.apply();
 
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // To clean up all activities
