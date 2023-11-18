@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -35,6 +36,7 @@ public class MyJobsFragment extends Fragment {
     List<UpcomingJobModelData> upcomingJobModelDataList = new ArrayList<>();
     MyAppointmentAdapter myAppointmentAdapter;
     RecyclerView recyclerAppointments;
+    LinearLayout no_jobLinear;
     private String user_id;
 
     @Override
@@ -43,6 +45,12 @@ public class MyJobsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_jobs, container, false);
         recyclerAppointments = view.findViewById(R.id.recyclerAppointments);
+        no_jobLinear = view.findViewById(R.id.no_jobLinear);
+
+        if (upcomingJobModelDataList.isEmpty())
+        {
+            no_jobLinear.setVisibility(View.VISIBLE);
+        }
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         recyclerAppointments.setLayoutManager(layoutManager);

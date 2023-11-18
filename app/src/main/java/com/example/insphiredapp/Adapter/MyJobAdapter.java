@@ -21,7 +21,6 @@ import com.bumptech.glide.Glide;
 import com.example.insphiredapp.Api_Model.JobCancelData;
 import com.example.insphiredapp.Api_Model.JobCancelModel;
 import com.example.insphiredapp.Api_Model.MyJobModelData;
-import com.example.insphiredapp.EmployeeActivity.EmployeeGiveRatingActivity;
 import com.example.insphiredapp.EmployeeActivity.ShowReviewEmployeeActivity;
 import com.example.insphiredapp.R;
 import com.example.insphiredapp.retrofit.Api;
@@ -58,8 +57,12 @@ public class MyJobAdapter extends RecyclerView.Adapter<MyJobAdapter.ViewHolder> 
         return new ViewHolder(view);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull MyJobAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
+
+
         is_corporator = String.valueOf(myJobModelDataList.get(position).getIsCorporator());
         if (is_corporator.equals("0"))
         {
@@ -100,6 +103,7 @@ public class MyJobAdapter extends RecyclerView.Adapter<MyJobAdapter.ViewHolder> 
 
             }
         });
+
 
 
     }

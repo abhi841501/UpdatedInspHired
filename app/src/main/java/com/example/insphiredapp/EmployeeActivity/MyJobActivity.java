@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,6 +40,7 @@ public class MyJobActivity extends AppCompatActivity {
     private String user_id,BookingId,UserType;
     private SearchView searchQueryMyJobs;
     private String is_corporator;
+    LinearLayout no_jobLinearrr;
     List<MyJobModelData> myJobModelDataListBackUp = new ArrayList<>();
 
     @Override
@@ -49,6 +51,12 @@ public class MyJobActivity extends AppCompatActivity {
         recyclerApplyJob = findViewById(R.id.recyclerApplyJob);
         backArrowFindJobs = findViewById(R.id.backArrowFindJobs);
         searchQueryMyJobs = findViewById(R.id.searchQueryMyJobs);
+        no_jobLinearrr = findViewById(R.id.no_jobLinearrr);
+
+        if(myJobModelDataList.isEmpty())
+        {
+            no_jobLinearrr.setVisibility(View.VISIBLE);
+        }
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MyJobActivity.this,LinearLayoutManager.VERTICAL,false);
         recyclerApplyJob.setLayoutManager(layoutManager);

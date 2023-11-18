@@ -120,10 +120,6 @@ public class HomeFragmentEmployee extends Fragment {
             }
         });
 
-
-
-
-
         return view;
     }
 
@@ -148,12 +144,7 @@ public class HomeFragmentEmployee extends Fragment {
                             String count = String.valueOf(notificationModel.getCount());
                             notificationCount.setText(count);
 
-
-
-
                             // Toast.makeText(NotificationActivity.this, msg, Toast.LENGTH_SHORT).show();
-
-
                             //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                             // Calling another activity
 

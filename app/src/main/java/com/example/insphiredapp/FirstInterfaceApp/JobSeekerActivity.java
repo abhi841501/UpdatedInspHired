@@ -1,13 +1,13 @@
 package com.example.insphiredapp.FirstInterfaceApp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.insphiredapp.EmployerActivity.RegisterActivity;
 import com.example.insphiredapp.R;
@@ -36,6 +36,7 @@ public class JobSeekerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(JobSeekerActivity.this, RegisterActivity.class);
+                intent.putExtra("TempEmployer","jobseeker");
                 startActivity(intent);
             }
         });

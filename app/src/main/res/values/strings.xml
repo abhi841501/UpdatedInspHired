@@ -16,6 +16,7 @@
     <string name="tex4">"Always helps colleagues and team members to remain calm and focused on the main goals during project execution"</string>
     <string name="tex5">"Very flexible and always adapt to changes in assignments"</string>
     <string name="category">"Select Category"</string>
+    <string name="JobProfile">"Select Designation"</string>
     <string name="location">"Select Location"</string>
     <string name="tex6">"Possesses a positive attitude towards criticism and comments from colleagues and superiors"</string>
     <string name="title_activity_payments">PaymentsActivity</string>
@@ -31,6 +32,7 @@
     <string name="search">Search Candidates</string>
     <string name="hint_enter_a_message">Type a message…</string>
     <string name="title_activity_search_map">SearchMapActivity</string>
+    <string name="notification_channel_id">default</string>
     <string name="cancel">cancel</string>
 
 

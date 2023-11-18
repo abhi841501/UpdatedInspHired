@@ -1,141 +1,123 @@
 package com.example.insphiredapp.Classes;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.media.AudioAttributes;
 import android.os.Build;
 import android.util.Log;
-import android.widget.RemoteViews;
 
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
-import com.example.insphiredapp.Adapter.NonNull;
-import com.example.insphiredapp.EmployeeActivity.NotificationActivity;
+import com.example.insphiredapp.EmployeeActivity.NotificationConfirmationActivity;
 import com.example.insphiredapp.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-public class FirebaseMessageReceiver extends FirebaseMessagingService {
-    // Override onNewToken to get new token
-    @Override
-    public void onNewToken(@NonNull String token)
-    {
-        Log.d("Tag","Refreshed token: " + token);
-    }
-    // Override onMessageReceived() method to extract the
-    // title and
-    // body from the message passed in FCM
-    @Override
-    public void
-    onMessageReceived(RemoteMessage remoteMessage)
-    {
-        // First case when notifications are received via
-        // data event
-        // Here, 'title' and 'message' are the assumed names
-        // of JSON
-        // attributes. Since here we do not have any data
-        // payload, This section is commented out. It is
-        // here only for reference purposes.
-        /*if(remoteMessage.getData().size()>0){
-            showNotification(remoteMessage.getData().get("title"),
-                          remoteMessage.getData().get("message"));
-        }*/
+import java.util.Date;
 
-        // Second case when notification payload is
-        // received.
+public class FirebaseMessageReceiver
+        extends FirebaseMessagingService {
+    @Override
+    public void onMessageReceived(RemoteMessage remoteMessage) {
+
+        String title = remoteMessage.getNotification().getTitle();
+        String text = remoteMessage.getNotification().getBody();
+
         if (remoteMessage.getNotification() != null) {
-            // Since the notification is received directly
-            // from FCM, the title and the body can be
-            // fetched directly as below.
-            showNotification(
-                    remoteMessage.getNotification().getTitle(),
-                    remoteMessage.getNotification().getBody());
+            sendNotification(remoteMessage.getNotification().getBody(),remoteMessage.getNotification().getTag(),remoteMessage.getNotification().getColor());
         }
+
+
+        Log.e("FirebaseMessageReceiver", "  type:    " + remoteMessage.getNotification().getTag()+"   notificationId:   "+remoteMessage.getNotification().getColor());
+
+         /*    final String CHANNEL_ID = "HEADS_UP_NOTIFICATION";
+
+        NotificationChannel channel = new NotificationChannel(
+                CHANNEL_ID,
+                "Heads Up Notification",
+                NotificationManager.IMPORTANCE_HIGH
+        );
+
+        Intent intent = new Intent(this, NotificationConfirmationActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+
+
+        Notification.Builder notification =
+                new Notification.Builder(this, CHANNEL_ID)
+                        .setContentTitle(title)
+                        .setContentText(text)
+                        .setSmallIcon(R.mipmap.ic_launcher1)
+                        .setAutoCancel(true);
+
+        NotificationManagerCompat.from(this).notify(1, notification.build());*/
+
+        super.onMessageReceived(remoteMessage);
     }
 
-    // Method to get the custom Design for the display of
-    // notification.
-    private RemoteViews getCustomDesign(String title,
-                                        String message)
-    {
-        @SuppressLint("RemoteViewLayout") RemoteViews remoteViews = new RemoteViews(
-                getApplicationContext().getPackageName(),
-                R.layout.notication_requestt);
-        remoteViews.setTextViewText(R.id.title, title);
-        remoteViews.setTextViewText(R.id.message, message);
-        remoteViews.setImageViewResource(R.id.icon,
-                R.drawable.project_logo);
-        return remoteViews;
-    }
+    @SuppressLint("UnspecifiedImmutableFlag")
+    private void sendNotification(String messageBody,String type,String notificationId) {
+        Log.e("FirebaseMessageReceiver", "Bundle messageBody: " + messageBody);
 
-    // Method to display the notifications
-    public void showNotification(String title,
-                                 String message)
-    {
-        // Pass the intent to switch to the MainActivity
-        Intent intent
-                = new Intent(this, NotificationActivity.class);
-        // Assign channel ID
-        String channel_id = "notification_channel";
-        // Here FLAG_ACTIVITY_CLEAR_TOP flag is set to clear
-        // the activities present in the activity stack,
-        // on the top of the Activity that is to be launched
+
+        PendingIntent pendingIntent;
+        Intent intent = new Intent(this, NotificationConfirmationActivity.class);
+        intent.putExtra("type", type);
+        intent.putExtra("notificationId", notificationId);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        // Pass the intent to PendingIntent to start the
-        // next Activity
-        PendingIntent pendingIntent
-                = PendingIntent.getActivity(
-                this, 0, intent,
-                PendingIntent.FLAG_ONE_SHOT);
 
-        // Create a Builder object using NotificationCompat
-        // class. This will allow control over all the flags
-        NotificationCompat.Builder builder
-                = new NotificationCompat
-                .Builder(getApplicationContext(),
-                channel_id)
-                .setSmallIcon(R.drawable.project_logo)
-                .setAutoCancel(true)
-                .setVibrate(new long[] { 1000, 1000, 1000,
-                        1000, 1000 })
-                .setOnlyAlertOnce(true)
-                .setContentIntent(pendingIntent);
-
-        // A customized design for the notification can be
-        // set only for Android versions 4.1 and above. Thus
-        // condition for the same is checked here.
-        if (Build.VERSION.SDK_INT
-                >= Build.VERSION_CODES.JELLY_BEAN) {
-            builder = builder.setContent(
-                    getCustomDesign(title, message));
-        } // If Android Version is lower than Jelly Beans,
-        // customized layout cannot be used and thus the
-        // layout is set as follows
-        else {
-            builder = builder.setContentTitle(title)
-                    .setContentText(message)
-                    .setSmallIcon(R.drawable.project_logo);
-        }
-        // Create an object of NotificationManager class to
-        // notify the
-        // user of events that happen in the background.
-        NotificationManager notificationManager
-                = (NotificationManager)getSystemService(
-                Context.NOTIFICATION_SERVICE);
-        // Check if the Android Version is greater than Oreo
-        if (Build.VERSION.SDK_INT
-                >= Build.VERSION_CODES.O) {
-            NotificationChannel notificationChannel
-                    = new NotificationChannel(
-                    channel_id, "web_app",
-                    NotificationManager.IMPORTANCE_HIGH);
-            notificationManager.createNotificationChannel(
-                    notificationChannel);
+        //Intent intent = new Intent("ACTION_GOT_IT");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE);
+        } else {
+            pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         }
 
-        notificationManager.notify(0, builder.build());
+
+        AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .setUsage(AudioAttributes.USAGE_MEDIA)
+                .build();
+
+        String channelId = System.currentTimeMillis() + "";
+        //Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, channelId);
+        notificationBuilder.setSmallIcon(R.mipmap.ic_launcher);
+        notificationBuilder.setLargeIcon(BitmapFactory.decodeResource(this.getResources(),
+                R.mipmap.ic_launcher));
+        notificationBuilder.setContentTitle(getString(R.string.app_name));
+        notificationBuilder.setContentText(messageBody);
+        notificationBuilder.setAutoCancel(true);
+        notificationBuilder.setTimeoutAfter(15000);
+        notificationBuilder.setDefaults(Notification.DEFAULT_SOUND);
+        //notificationBuilder.setSound(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://"+getPackageName()+"/"+R.raw.tring_sms));
+        notificationBuilder.setContentIntent(pendingIntent);
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        if (notificationManager != null) {
+            //Since android Oreo notification channel is needed.
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel notificationChannel = new NotificationChannel(channelId, getString(R.string.app_name), NotificationManager.IMPORTANCE_DEFAULT);
+                notificationChannel.enableLights(true);
+                notificationChannel.enableVibration(true);
+                // notificationChannel.setSound(NOTIFICATION_SOUND_URI, audioAttributes);
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+
+            int notificationId1 = (int) ((new Date(System.currentTimeMillis()).getTime() / 1000L) % Integer.MAX_VALUE);
+            notificationManager.notify(notificationId1, notificationBuilder.build());
+
+        }
+
     }
+
+
 }
+

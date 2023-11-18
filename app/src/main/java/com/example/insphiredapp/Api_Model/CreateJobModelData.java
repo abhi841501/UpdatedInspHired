@@ -4,7 +4,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class CreateJobModelData {
-
     @SerializedName("employer_id")
     @Expose
     public String employerId;
@@ -19,7 +18,7 @@ public class CreateJobModelData {
     public String jobSummary;
     @SerializedName("hourly_rate")
     @Expose
-    public String hourlyRate;
+    public Integer hourlyRate;
     @SerializedName("daily_rate")
     @Expose
     public String dailyRate;
@@ -29,9 +28,18 @@ public class CreateJobModelData {
     @SerializedName("end_date")
     @Expose
     public String endDate;
+    @SerializedName("start_time")
+    @Expose
+    public String startTime;
     @SerializedName("updated_at")
     @Expose
     public String updatedAt;
+    @SerializedName("created_at")
+    @Expose
+    public String createdAt;
+    @SerializedName("id")
+    @Expose
+    public Integer id;
 
     public String getEmployerId() {
         return employerId;
@@ -65,11 +73,11 @@ public class CreateJobModelData {
         this.jobSummary = jobSummary;
     }
 
-    public String getHourlyRate() {
+    public Integer getHourlyRate() {
         return hourlyRate;
     }
 
-    public void setHourlyRate(String hourlyRate) {
+    public void setHourlyRate(Integer hourlyRate) {
         this.hourlyRate = hourlyRate;
     }
 
@@ -97,6 +105,14 @@ public class CreateJobModelData {
         this.endDate = endDate;
     }
 
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
     public String getUpdatedAt() {
         return updatedAt;
     }
@@ -120,11 +136,4 @@ public class CreateJobModelData {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    @SerializedName("created_at")
-    @Expose
-    public String createdAt;
-    @SerializedName("id")
-    @Expose
-    public Integer id;
 }

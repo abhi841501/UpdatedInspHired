@@ -7,7 +7,6 @@ import java.util.List;
 
 public class GetCreateSlotsModel {
 
-
     @SerializedName("success")
     @Expose
     public String success;
@@ -22,16 +21,32 @@ public class GetCreateSlotsModel {
         return success;
     }
 
+    public void setSuccess(String success) {
+        this.success = success;
+    }
+
     public String getMessage() {
         return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public List<GetCreateSlotsModelData> getData() {
         return data;
     }
 
+    public void setData(List<GetCreateSlotsModelData> data) {
+        this.data = data;
+    }
+
     public String getTable() {
         return table;
+    }
+
+    public void setTable(String table) {
+        this.table = table;
     }
 
     @SerializedName("table")

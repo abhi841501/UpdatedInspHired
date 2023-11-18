@@ -4,8 +4,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class BookingModel {
-
-
     @SerializedName("success")
     @Expose
     public String success;

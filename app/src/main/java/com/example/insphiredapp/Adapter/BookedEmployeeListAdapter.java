@@ -41,9 +41,6 @@ import com.example.insphiredapp.Api_Model.CancelModelData;
 import com.example.insphiredapp.Api_Model.GetEmployeeBookedListModelData;
 import com.example.insphiredapp.Api_Model.RequestTimeSlotModel;
 import com.example.insphiredapp.EmployeeActivity.ChatCompanyActivity;
-import com.example.insphiredapp.EmployeeActivity.EmployeeMessageActivity;
-import com.example.insphiredapp.EmployerActivity.AllEmployeeListActivity;
-import com.example.insphiredapp.EmployerActivity.BookingActivity;
 import com.example.insphiredapp.R;
 import com.example.insphiredapp.retrofit.Api;
 import com.example.insphiredapp.retrofit.Api_Client;
@@ -194,7 +191,7 @@ public class BookedEmployeeListAdapter extends RecyclerView.Adapter<BookedEmploy
         Dialog openDialog = new Dialog(context);
         openDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         openDialog.setContentView(R.layout.rescheduled_pop_up);
-        AppCompatButton RequestBtnBookinggggg = openDialog.findViewById(R.id.SubmitOTPBtn);
+        AppCompatButton RequestBtnBooking = openDialog.findViewById(R.id.RequestBtnBooking);
         ImageView crossRequestPOpUp = openDialog.findViewById(R.id.crossRequestPOpUp);
         TextView selectSDateReqTxt = openDialog.findViewById(R.id.selectSDateReqTxt);
         TextView selectEndTxtReq = openDialog.findViewById(R.id.selectEndTxtReq);
@@ -299,7 +296,7 @@ public class BookedEmployeeListAdapter extends RecyclerView.Adapter<BookedEmploy
         UserTypeee= getUserIdData.getString("userType", "");
         Log.e("feedback", "change" + UserIdDD);
 
-        RequestBtnBookinggggg.setOnClickListener(new View.OnClickListener() {
+        RequestBtnBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 StartDateeee = selectSDateReqTxt.getText().toString();
@@ -336,7 +333,7 @@ public class BookedEmployeeListAdapter extends RecyclerView.Adapter<BookedEmploy
 
                             // Id  = profileGetData.getId();
 
-                            //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
                             // Calling another activity
 
                         } else {

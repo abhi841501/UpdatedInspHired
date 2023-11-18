@@ -171,7 +171,7 @@ public class EmployerHistoryAdapter extends RecyclerView.Adapter<EmployerHistory
         Dialog openDialog = new Dialog(context);
         openDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         openDialog.setContentView(R.layout.rescheduled_pop_up);
-        AppCompatButton RequestBtn = openDialog.findViewById(R.id.SubmitOTPBtn);
+        AppCompatButton RequestBtnBooking = openDialog.findViewById(R.id.RequestBtnBooking);
         ImageView crossRequestPOpUp = openDialog.findViewById(R.id.crossRequestPOpUp);
         TextView selectSDateReqTxt = openDialog.findViewById(R.id.selectSDateReqTxt);
         TextView selectEndTxtReq = openDialog.findViewById(R.id.selectEndTxtReq);
@@ -275,7 +275,7 @@ public class EmployerHistoryAdapter extends RecyclerView.Adapter<EmployerHistory
         UserTypeee= getUserIdData.getString("userType", "");
         Log.e("feedback", "change" + UserIdDD);
 
-        RequestBtn.setOnClickListener(new View.OnClickListener() {
+        RequestBtnBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 StartDateeee = selectSDateReqTxt.getText().toString();

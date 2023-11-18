@@ -2,13 +2,16 @@ package com.example.insphiredapp.retrofit;
 
 import com.example.insphiredapp.ApiModelEmployer.EmployerProfileModel;
 import com.example.insphiredapp.ApiModelEmployer.ForgotPassword;
+import com.example.insphiredapp.Api_Model.AcceptNotificationModel;
 import com.example.insphiredapp.Api_Model.AllEmployeeListModel;
 import com.example.insphiredapp.Api_Model.BookingModel;
 import com.example.insphiredapp.Api_Model.CancelEmployeeHistoryModel;
 import com.example.insphiredapp.Api_Model.CancelModel;
 import com.example.insphiredapp.Api_Model.ChangePasswordModel;
 import com.example.insphiredapp.Api_Model.ChatCompanyModel;
+import com.example.insphiredapp.Api_Model.CreateJobModel;
 import com.example.insphiredapp.Api_Model.CreateSlotModel;
+import com.example.insphiredapp.Api_Model.DeleteJobmodel;
 import com.example.insphiredapp.Api_Model.DeleteTimeSlotModel;
 import com.example.insphiredapp.Api_Model.EarningModel;
 import com.example.insphiredapp.Api_Model.EditEmployerProfileModel;
@@ -17,6 +20,7 @@ import com.example.insphiredapp.Api_Model.EmployeeEditProfileModel;
 import com.example.insphiredapp.Api_Model.EmployeeHistoryModel;
 import com.example.insphiredapp.Api_Model.EmployeeProfileModelFirst;
 import com.example.insphiredapp.Api_Model.EmployerChatEmpModel;
+import com.example.insphiredapp.Api_Model.ExternalNotificationModel;
 import com.example.insphiredapp.Api_Model.Favourite_employee_model;
 import com.example.insphiredapp.Api_Model.FilterModel;
 import com.example.insphiredapp.Api_Model.GetBookingDetailModel;
@@ -31,6 +35,7 @@ import com.example.insphiredapp.Api_Model.GetReviewModel;
 import com.example.insphiredapp.Api_Model.GetWithDrawModel;
 import com.example.insphiredapp.Api_Model.GiveRatingModel;
 import com.example.insphiredapp.Api_Model.JobCancelModel;
+import com.example.insphiredapp.Api_Model.JobListModel;
 import com.example.insphiredapp.Api_Model.LocationModel;
 import com.example.insphiredapp.Api_Model.LoginModel;
 import com.example.insphiredapp.Api_Model.MsgEmployeeModel;
@@ -40,6 +45,7 @@ import com.example.insphiredapp.Api_Model.PaymentHistoryModel;
 import com.example.insphiredapp.Api_Model.PostEmailOtpModel;
 import com.example.insphiredapp.Api_Model.PostProfieEmpApi;
 import com.example.insphiredapp.Api_Model.RegisterModel;
+import com.example.insphiredapp.Api_Model.RejectModel;
 import com.example.insphiredapp.Api_Model.RequestTimeSlotModel;
 import com.example.insphiredapp.Api_Model.ResetPasswordModel;
 import com.example.insphiredapp.Api_Model.ShowCvModel;
@@ -48,7 +54,6 @@ import com.example.insphiredapp.Api_Model.UserChatModel;
 import com.example.insphiredapp.Api_Model.VerifyOtpModel;
 import com.example.insphiredapp.Api_Model.WithdrawModel;
 import com.example.insphiredapp.FeedbackEmployee.EmployeeRating;
-import com.example.insphiredapp.FeedbackEmployee.EmployeeRatingData;
 import com.example.insphiredapp.ShowReviewApiModel.ShowEmployeeReview;
 
 import okhttp3.MultipartBody;
@@ -77,7 +82,7 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("user_login")
-    Call<LoginModel> LOGIN_MODEL_CALL(@Field("email") String email,
+    Call<LoginModel>LOGIN_MODEL_CALL(@Field("email") String email,
                                       @Field("password") String password,
                                       @Field("device_token") String token,
                                       @Field("user_type") String userType);
@@ -208,12 +213,11 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("employee_book")
-    Call<BookingModel> BOOKING_MODEL_CALL(@Field("employee_id") String employee_Id,
+    Call<BookingModel>BOOKING_MODEL_CALL(@Field("employee_id") String employee_Id,
                                           @Field("user_id") String user_id,
                                           @Field("amount") String amount,
                                           @Field("time_slot_id") String time_slot_id,
                                           @Field("user_type") String user_type);
-
     @GET()
     Call<EmployeeBookedListModel> EMPLOYEE_BOOKED_LIST_MODEL_CALL(@Url String str);
 
@@ -278,7 +282,7 @@ public interface Api {
                                                  @Field("end_date") String end_date,
                                                  @Field("start_time") String start_time,
                                                  @Field("end_time") String end_time,
-                                                 @Field("location ")String location);
+                                                 @Field("location ") String location);
 
     @FormUrlEncoded
     @POST("time_slot_change_request")
@@ -315,7 +319,40 @@ public interface Api {
     Call<ShowCvModel> SHOW_CV_MODEL_CALL(@Url String str);
 
     @GET()
-    Call<NotificationModel>NOTIFICATION_MODEL_CALL(@Url String str);
+    Call<NotificationModel> NOTIFICATION_MODEL_CALL(@Url String str);
+
+    @FormUrlEncoded
+    @POST("create_jobs")
+    Call<CreateJobModel>CREATE_JOB_MODEL_CALL(@Field("employer_id") String employer_id,
+                                              @Field("cat_id") String cat_id,
+                                              @Field("job_title")String job_title,
+                                              @Field("job_summary") String job_summary,
+                                              @Field("user_type") String user_type,
+                                              @Field("daily_rate") String daily_rate,
+                                              @Field("start_date") String start_date,
+                                              @Field("end_date") String  end_date,
+                                              @Field("hourly_Time") String hourly_Time,
+                                              @Field("address") String address);
+
+    @GET()
+    Call<JobListModel>JOB_LIST_MODEL_CALL(@Url String Str);
+
+    @GET()
+    Call<DeleteJobmodel>DELETE_JOBMODEL_CALL(@Url String Str);
+
+
+
+    @FormUrlEncoded
+    @POST("accept_request")
+    Call<AcceptNotificationModel>ACCEPT_NOTIFICATION_MODEL_CALL(@Field("id") String id,
+                                                                @Field("user_id") String user_id);
+
+    @FormUrlEncoded
+    @POST("reject_request")
+    Call<RejectModel>REJECT_MODEL_CALL(@Field("id") String id);
+
+    @GET()
+    Call<ExternalNotificationModel> EXTERNAL_NOTIFICATION_MODEL_CALL(@Url String Str);
 
 
 }

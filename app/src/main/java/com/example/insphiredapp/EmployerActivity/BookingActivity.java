@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,10 +24,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import com.example.insphiredapp.Adapter.EmployeeListAdapter;
 import com.example.insphiredapp.Api_Model.BookingModel;
 import com.example.insphiredapp.Api_Model.BookingModelData;
-import com.example.insphiredapp.Api_Model.FilterModel;
 import com.example.insphiredapp.Api_Model.GetBookingDetailModel;
 import com.example.insphiredapp.Api_Model.GetBookingDetailModelData;
 import com.example.insphiredapp.Api_Model.RequestTimeSlotModel;
@@ -49,22 +48,26 @@ public class BookingActivity extends AppCompatActivity {
     private ImageView backArrowBooking, requestForReschceduled;
     private TextView nameBooking, designationBooking, startDateBooking, endDateBooking, amountAllEmployeeBooking, locationBooking;
     private TextView AmountBookingTxt;
-    private AppCompatButton BookNowBtnBooking, seeVideoBtn;
+    private AppCompatButton BookNowBtnBooking, seeVideoBtn,GeneratePOBooking,SubmitPONUmber;
     private GetBookingDetailModelData getBookingDetailModelData;
     private String EmployeeId, StrName, strTotalAmount, strStartDate, strEndDate, strLocation, UserId, UserType, strCatName,
-            strDailyAmountFav, strAddressFav;
+            strDailyAmountFav, strAddressFav,StrGeneratePOTxt;
     private String strAmount, EmployeeIdDetails, Id;
     private int year,month,day;
     RequestTimeSlotModelData requestTimeSlotModelData;
+    LinearLayout linearGeneratePoNo;
+    EditText GeneratePOTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
+
         inits();
         EmployeeId = getIntent().getStringExtra("EmpId");
         TimeSlotId = getIntent().getStringExtra("TimeSlot");
-        Log.e("TimeSlotId", "change" + TimeSlotId);
+        Log.e("feedbackkk", "TimeSlotID" + TimeSlotId);
+        Log.e("feedbackkk", "EmployeeId" + EmployeeId);
         EmployeeIdDetails = getIntent().getStringExtra("EmpDetailsID");
         backArrowBooking.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,8 +79,8 @@ public class BookingActivity extends AppCompatActivity {
         SharedPreferences getUserIdData = getSharedPreferences("AUTHENTICATION_FILE_NAME", MODE_PRIVATE);
         UserId = getUserIdData.getString("Id", "");
         UserType = getUserIdData.getString("userType", "");
-        Log.e("feedbackkk", "change" + UserId);
-        Log.e("feedbackkk", "change" + UserType);
+        Log.e("feedbackkk", "UserId" + UserId);
+        Log.e("feedbackkk", "UserType" + UserType);
 
 
         getEmployeeDetailsApi();
@@ -91,10 +94,35 @@ public class BookingActivity extends AppCompatActivity {
             }
         });
 
+        if (UserType.equals("corporator"))
+        {
+            GeneratePOBooking.setVisibility(View.VISIBLE);
+            BookNowBtnBooking.setVisibility(View.GONE);
+        }
+
+        GeneratePOBooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                linearGeneratePoNo.setVisibility(View.VISIBLE);
+                SubmitPONUmber.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        SubmitPONUmber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StrGeneratePOTxt = GeneratePOTxt.getText().toString();
+                Log.e("feedbackkk", "GeneratePOTxt" + StrGeneratePOTxt);
+                employeeBookApi();
+            }
+        });
+
         BookNowBtnBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                GeneratePOBooking.setVisibility(View.GONE);
+                BookNowBtnBooking.setVisibility(View.VISIBLE);
                 employeeBookApi();
 
             }
@@ -113,7 +141,7 @@ public class BookingActivity extends AppCompatActivity {
         Dialog openDialog = new Dialog(BookingActivity.this);
         openDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         openDialog.setContentView(R.layout.rescheduled_pop_up);
-        AppCompatButton RequestBtnBooking = openDialog.findViewById(R.id.SubmitOTPBtn);
+        AppCompatButton RequestBtnBooking = openDialog.findViewById(R.id.RequestBtnBooking);
         ImageView crossRequestPOpUp = openDialog.findViewById(R.id.crossRequestPOpUp);
         TextView selectSDateReqTxt = openDialog.findViewById(R.id.selectSDateReqTxt);
         TextView selectEndTxtReq = openDialog.findViewById(R.id.selectEndTxtReq);
@@ -250,7 +278,7 @@ public class BookingActivity extends AppCompatActivity {
 
                             // Id  = profileGetData.getId();
 
-                            //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
                             // Calling another activity
 
                         } else {
@@ -348,7 +376,7 @@ public class BookingActivity extends AppCompatActivity {
                             strDailyAmountFav = getBookingDetailModelData.getDailyRate();
                             strLocation = getBookingDetailModelData.getAddress();
                             strTotalAmount = String.valueOf(getBookingDetailModelData.getTotalAmomunt());
-                            Log.e("hell", "onResponse: " + strTotalAmount);
+                            Log.e("feedback", "totalamount: " + strTotalAmount);
 
                             nameBooking.setText(StrName);
                             designationBooking.setText(strCatName);
@@ -453,6 +481,7 @@ public class BookingActivity extends AppCompatActivity {
                             intent.putExtra("UserId", UserId);
                             intent.putExtra("SlotId", TimeSlotId);
                             intent.putExtra("Type", UserType);
+                            intent.putExtra("StrGeneratePOTxt", StrGeneratePOTxt);
                             startActivity(intent);
 
                             /*AmountBookingTxt.setText("");*/
@@ -534,5 +563,9 @@ public class BookingActivity extends AppCompatActivity {
         BookNowBtnBooking = findViewById(R.id.BookNowBtnBooking);
         seeVideoBtn = findViewById(R.id.seeVideoBtn);
         requestForReschceduled = findViewById(R.id.requestForReschceduled);
+        GeneratePOBooking = findViewById(R.id.GeneratePOBooking);
+        linearGeneratePoNo = findViewById(R.id.linearGeneratePoNo);
+        GeneratePOTxt = findViewById(R.id.GeneratePOTxt);
+        SubmitPONUmber = findViewById(R.id.SubmitPONUmber);
     }
 }

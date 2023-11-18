@@ -25,8 +25,10 @@
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/creditback.xml" value="0.7416666666666667" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/dialog_bg.xml" value="0.50625" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/favourite_background_white.xml" value="0.3416666666666667" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/feedback.xml" value="0.4925" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.3416666666666667" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/ic_baseline_mic_24.xml" value="0.50625" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.88125" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/job_seeker_background.xml" value="0.6145833333333334" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/job_seeker_interface.xml" value="0.67" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/leave_feedback.xml" value="0.6145833333333334" />
@@ -45,6 +47,7 @@
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/seek_thumb.xml" value="0.50625" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/seekbarbackground.xml" value="0.50625" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/send_message_design.xml" value="0.3416666666666667" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/shape.xml" value="0.4125" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/shape_custom_cursor.xml" value="0.34444444444444444" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/slot_background.xml" value="0.7416666666666667" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/drawable/spinner_background.xml" value="0.5791666666666667" />
@@ -58,10 +61,11 @@
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_available_slots.xml" value="0.7673267326732673" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_booking.xml" value="0.5" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_change_password.xml" value="0.8425" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_create_job.xml" value="0.75" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_create_slot.xml" value="0.67" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_cvweb_view.xml" value="0.3375" />
-        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_dashboard.xml" value="0.8425" />
-        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_dashboard_employee.xml" value="0.67" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_dashboard.xml" value="0.5601659751037344" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_dashboard_employee.xml" value="0.5" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_edit_profile.xml" value="0.5" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_emp_details.xml" value="0.7175925925925926" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_employee_give_rating.xml" value="0.5695876288659794" />
@@ -82,20 +86,22 @@
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_main.xml" value="0.8425" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_my_job.xml" value="0.4675" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_notification.xml" value="0.8425" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_notification_confirmation.xml" value="0.75" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_on_going_employee.xml" value="0.4297423887587822" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_profile.xml" value="0.5" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_profile_employer_first.xml" value="0.75" />
-        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_register.xml" value="0.57984496124031" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_register.xml" value="0.67" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_reset_password.xml" value="0.67" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_review_employer.xml" value="0.67" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_search_employee.xml" value="0.3375" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_search_map.xml" value="0.67" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_select_slots.xml" value="0.7673267326732673" />
-        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_settings.xml" value="0.7797029702970297" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_settings.xml" value="0.9" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_show_review_employee.xml" value="0.5" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_show_review_employee2.xml" value="0.7576112412177985" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.8425" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/activity_web_view.xml" value="0.5470297029702971" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/alert_jobdelete.xml" value="0.8425" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/custom_wait_dialog.xml" value="0.7753623188405797" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/email_verify_layout.xml" value="0.75" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/employeelistrecycler.xml" value="0.67" />
@@ -104,7 +110,9 @@
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/fragment_favourite.xml" value="0.35104166666666664" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/fragment_home_employee.xml" value="0.754950495049505" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/fragment_home_page.xml" value="0.75" />
-        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/fragment_my_jobs.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/fragment_jobs_profile.xml" value="0.5" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/fragment_my_jobs.xml" value="0.8583333333333333" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/fragment_payments.xml" value="0.3375" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/fragment_payments_employee.xml" value="0.75" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/fragment_profile.xml" value="0.67" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/fragment_profile_employee.xml" value="0.67" />
@@ -124,6 +132,7 @@
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/recycler_credit_trans.xml" value="0.67" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/recycler_debit_trans.xml" value="0.67" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/recycler_employee_review.xml" value="0.46041666666666664" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/recycler_jobs_profile.xml" value="0.9" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/recycler_notification.xml" value="0.8425" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/recycler_send_message.xml" value="0.5" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/recyclerappliedjobs.xml" value="0.5" />
@@ -131,13 +140,15 @@
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/recycleremployerhistory.xml" value="0.67" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/recyclermyjob.xml" value="0.67" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/recyclerselectslots.xml" value="0.75" />
-        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/recyclerwalletfragment.xml" value="0.67" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/recyclerwalletfragment.xml" value="0.75" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/recycyclerreviews1.xml" value="0.5" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/reg_enterotp_popup.xml" value="0.75" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/relative_chat_employee.xml" value="0.33697916666666666" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/rescheduled_pop_up.xml" value="0.5763888888888888" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/upload_previous_details.xml" value="0.67" />
         <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/layout/upload_video_layout.xml" value="0.4675" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher2.xml" value="0.4925" />
+        <entry key="..\:/Users/admin/Desktop/INSPHIRED/InspHiredApp/InspHiredApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher2_round.xml" value="0.4925" />
       </map>
     </option>
   </component>

@@ -526,7 +526,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                         Log.e("paramObject1", "strMessage.." +success);
                         if (success.equals("true")|| success.equals("True")) {
                            // sendVerificationCode("+91" + phoneNumber.getText().toString());
-                            sendVerificationCode("+91" + phoneNumber.getText().toString());
+                            sendVerificationCode("+27" + phoneNumber.getText().toString());
 
 
                         } else {

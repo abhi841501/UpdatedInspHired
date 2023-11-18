@@ -30,42 +30,43 @@
   <androidx.appcompat.widget.LinearLayoutCompat
       android:id="@+id/bottom_menu"
       android:layout_width="match_parent"
-      android:layout_height="65dp"
+      android:layout_height="wrap_content"
       android:background="@color/darkRed"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintBottom_toBottomOf="parent"
       android:orientation="horizontal"
-      android:weightSum="10">
+      android:weightSum="10"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent">
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/home_layout"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_weight="2"
         android:orientation="vertical"
-        android:layout_weight="2.5"
 
         >
+
       <androidx.appcompat.widget.AppCompatImageView
-          android:layout_width="35dp"
           android:id="@+id/homeIcon"
+          android:layout_width="35dp"
           android:layout_height="35dp"
           android:layout_gravity="center"
           android:layout_marginTop="5dp"
-          android:src="@drawable/house1">
-      </androidx.appcompat.widget.AppCompatImageView>
+          android:src="@drawable/house1"></androidx.appcompat.widget.AppCompatImageView>
 
       <TextView
           android:id="@+id/homeIconText"
-          android:layout_width="wrap_content"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="5dp"
-          android:text="Home"
           android:layout_gravity="center"
+          android:gravity="center"
+          android:padding="5dp"
+          android:text="Home"
           android:textColor="@color/white"
           android:textSize="12dp" />
-
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -75,94 +76,118 @@
         android:id="@+id/favourite_layout"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_weight="2"
         android:orientation="vertical"
-        android:layout_weight="2.5"
 
         >
+
       <androidx.appcompat.widget.AppCompatImageView
-          android:layout_width="35dp"
           android:id="@+id/favouriteIcon"
+          android:layout_width="35dp"
           android:layout_height="35dp"
           android:layout_gravity="center"
           android:layout_marginTop="5dp"
           android:src="@drawable/appoinment1"
-          android:tint="@color/white">
-      </androidx.appcompat.widget.AppCompatImageView>
+          android:tint="@color/white"></androidx.appcompat.widget.AppCompatImageView>
 
       <TextView
           android:id="@+id/favouriteIconText"
-          android:layout_width="wrap_content"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="5dp"
-          android:text="Favourite"
           android:layout_gravity="center"
+          android:gravity="center"
+          android:padding="5dp"
+          android:text="Favourite"
           android:textColor="@color/white"
-          android:textSize="12dp"/>
-
+          android:textSize="12dp" />
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/wallet_layout"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="2.5">
+        android:layout_weight="2"
+        android:orientation="vertical">
 
       <androidx.appcompat.widget.AppCompatImageView
+          android:id="@+id/walletIcon"
           android:layout_width="35dp"
           android:layout_height="35dp"
           android:layout_gravity="center"
           android:layout_marginTop="5dp"
-          android:src="@drawable/wallet1"
-          android:id="@+id/walletIcon">
-      </androidx.appcompat.widget.AppCompatImageView>
+          android:src="@drawable/wallet1"></androidx.appcompat.widget.AppCompatImageView>
 
       <TextView
           android:id="@+id/walletIconText"
-          android:layout_width="wrap_content"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="5dp"
-          android:text="Payment History"
           android:layout_gravity="center"
+          android:gravity="center"
+          android:padding="5dp"
+          android:text="Payment History"
           android:textColor="@color/white"
-          android:textSize="12dp"/>
-
+          android:textSize="12dp" />
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/myJobsProfile_layout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical">
 
+      <androidx.appcompat.widget.AppCompatImageView
+          android:id="@+id/myJobsProfileLogo"
+          android:layout_width="35dp"
+          android:layout_height="35dp"
+          android:layout_gravity="center"
+          android:layout_marginTop="5dp"
+          android:src="@drawable/myjobs"></androidx.appcompat.widget.AppCompatImageView>
+
+      <TextView
+          android:id="@+id/myJobsProfileLogoText"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:gravity="center"
+          android:padding="5dp"
+          android:text="Job Profile"
+          android:textColor="@color/white"
+          android:textSize="12dp" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/profile_layout"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="2.5">
+        android:layout_weight="2"
+        android:orientation="vertical">
 
       <androidx.appcompat.widget.AppCompatImageView
-          android:layout_width="35dp"
           android:id="@+id/profileIcon"
+          android:layout_width="35dp"
           android:layout_height="35dp"
           android:layout_gravity="center"
           android:layout_marginTop="5dp"
-          android:src="@drawable/profile1">
-      </androidx.appcompat.widget.AppCompatImageView>
+          android:src="@drawable/profile1"></androidx.appcompat.widget.AppCompatImageView>
 
       <TextView
           android:id="@+id/profileIconText"
-          android:layout_width="wrap_content"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="5dp"
-          android:text="Profile"
           android:layout_gravity="center"
+          android:gravity="center"
+          android:padding="5dp"
+          android:text="Profile"
           android:textColor="@color/white"
           android:textSize="12dp" />
-
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -170,5 +195,4 @@
   </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-
-  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

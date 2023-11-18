@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.insphiredapp.EmployerFragment.FavouriteFragment;
 import com.example.insphiredapp.EmployerFragment.HomeFragment;
+import com.example.insphiredapp.EmployerFragment.JobsProfileFragment;
 import com.example.insphiredapp.EmployerFragment.PaymentsFragment;
 import com.example.insphiredapp.EmployerFragment.ProfileFragment;
 import com.example.insphiredapp.R;
@@ -48,10 +49,10 @@ public class DashboardActivity extends AppCompatActivity {
         homeIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.home));
         homeIcon.setColorFilter(getApplication().getResources().getColor(skyBlue));
 
-        wallet_Fragment();
-        profile_Fragment();
         favourite_Fragment();
-
+        wallet_Fragment();
+        JobsProfileFragment();
+        profile_Fragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
 
         Default = getIntent().getStringExtra("strDefault");
@@ -72,6 +73,8 @@ public class DashboardActivity extends AppCompatActivity {
                 walletIcon.setColorFilter(getApplication().getResources().getColor(white));
                 profileIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.profile1));
                 profileIcon.setColorFilter(getApplication().getResources().getColor(white));
+                binding.myJobsProfileLogo.setBackground(getApplication().getResources().getDrawable(R.drawable.myjobs));
+                binding.myJobsProfileLogo.setColorFilter(getApplication().getResources().getColor(white));
 
 
 
@@ -92,6 +95,9 @@ public class DashboardActivity extends AppCompatActivity {
                 walletIcon.setColorFilter(getApplication().getResources().getColor(white));
                 profileIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.profile1));
                 profileIcon.setColorFilter(getApplication().getResources().getColor(white));
+                binding.myJobsProfileLogo.setBackground(getApplication().getResources().getDrawable(R.drawable.myjobs));
+                binding.myJobsProfileLogo.setColorFilter(getApplication().getResources().getColor(white));
+
 
             }
         });
@@ -111,35 +117,68 @@ public class DashboardActivity extends AppCompatActivity {
                 favouriteIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.appoinment1));
                 favouriteIcon.setColorFilter(getApplication().getResources().getColor(white));
                 profileIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.profile1));
-                profileIcon.setColorFilter(getApplication().getResources().getColor(white));;
+                profileIcon.setColorFilter(getApplication().getResources().getColor(white));
+                binding.myJobsProfileLogo.setBackground(getApplication().getResources().getDrawable(R.drawable.myjobs));
+                binding.myJobsProfileLogo.setColorFilter(getApplication().getResources().getColor(white));
+
 
 
             }
         });
 
 
-
-
-        binding.profileLayout.setOnClickListener(new View.OnClickListener() {
+        binding.myJobsProfileLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navItemIndex = 4;
-                ProfileFragment profileFragment = new ProfileFragment();
-                replace_fragment(profileFragment);
-
-                profileIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.profile));
-                profileIcon.setColorFilter(getApplication().getResources().getColor(skyBlue));;
+                navItemIndex=4;
+                JobsProfileFragment jobsProfileFragment = new JobsProfileFragment();
+                replace_fragment(jobsProfileFragment);
+                binding.myJobsProfileLogo.setBackground(getApplication().getResources().getDrawable(R.drawable.myjob1));
+                binding.myJobsProfileLogo.setColorFilter(getApplication().getResources().getColor(skyBlue));
                 homeIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.house1));
                 homeIcon.setColorFilter(getApplication().getResources().getColor(white));;
                 favouriteIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.appoinment1));
                 favouriteIcon.setColorFilter(getApplication().getResources().getColor(white));
                 walletIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.wallet1));
-                walletIcon.setColorFilter(getApplication().getResources().getColor(white));;
+                walletIcon.setColorFilter(getApplication().getResources().getColor(white));
+                profileIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.profile1));
+                profileIcon.setColorFilter(getApplication().getResources().getColor(white));
+            }
+        });
+
+        binding.profileLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navItemIndex = 5;
+                ProfileFragment profileFragment = new ProfileFragment();
+                replace_fragment(profileFragment);
+
+                profileIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.profile));
+                profileIcon.setColorFilter(getApplication().getResources().getColor(skyBlue));
+                homeIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.house1));
+                homeIcon.setColorFilter(getApplication().getResources().getColor(white));;
+                favouriteIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.appoinment1));
+                favouriteIcon.setColorFilter(getApplication().getResources().getColor(white));
+                walletIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.wallet1));
+                walletIcon.setColorFilter(getApplication().getResources().getColor(white));
+                binding.myJobsProfileLogo.setBackground(getApplication().getResources().getDrawable(R.drawable.myjobs));
+                binding.myJobsProfileLogo.setColorFilter(getApplication().getResources().getColor(white));
+
 
 
             }
         });
 
+
+
+
+    }
+
+    private void JobsProfileFragment() {
+        JobsProfileFragment jobsProfileFragment = new JobsProfileFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.container,jobsProfileFragment);
+        ft.commit();
     }
 
     private void profile_Fragment() {
@@ -183,7 +222,8 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (shouldLoadHomeFragOnBackPress) {
-            if (navItemIndex == 4) {
+
+            if (navItemIndex == 5) {
                 navItemIndex = 1;
                 // Load the default fragment (dashboard) here.
                 // For example, you can call a method like default_Load().
@@ -197,6 +237,27 @@ public class DashboardActivity extends AppCompatActivity {
                 walletIcon.setColorFilter(getApplication().getResources().getColor(white));
                 profileIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.profile1));
                 profileIcon.setColorFilter(getApplication().getResources().getColor(white));
+                binding.myJobsProfileLogo.setBackground(getApplication().getResources().getDrawable(R.drawable.myjobs));
+                binding.myJobsProfileLogo.setColorFilter(getApplication().getResources().getColor(white));
+
+
+            }
+            else if (navItemIndex == 4) {
+                navItemIndex = 1;
+                // Load the default fragment (dashboard) here.
+                // For example, you can call a method like default_Load().
+                HomeFragment homeFragment = new HomeFragment();
+                replace_fragment(homeFragment);
+                homeIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.home));
+                homeIcon.setColorFilter(getApplication().getResources().getColor(skyBlue));
+                favouriteIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.appoinment1));
+                favouriteIcon.setColorFilter(getApplication().getResources().getColor(white));
+                walletIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.wallet1));
+                walletIcon.setColorFilter(getApplication().getResources().getColor(white));
+                profileIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.profile1));
+                profileIcon.setColorFilter(getApplication().getResources().getColor(white));
+                binding.myJobsProfileLogo.setBackground(getApplication().getResources().getDrawable(R.drawable.myjobs));
+                binding.myJobsProfileLogo.setColorFilter(getApplication().getResources().getColor(white));
             }
 
             else if (navItemIndex == 3)
@@ -212,6 +273,8 @@ public class DashboardActivity extends AppCompatActivity {
                 walletIcon.setColorFilter(getApplication().getResources().getColor(white));
                 profileIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.profile1));
                 profileIcon.setColorFilter(getApplication().getResources().getColor(white));
+                binding.myJobsProfileLogo.setBackground(getApplication().getResources().getDrawable(R.drawable.myjobs));
+                binding.myJobsProfileLogo.setColorFilter(getApplication().getResources().getColor(white));
 
             }
             else if (navItemIndex == 2)
@@ -227,6 +290,8 @@ public class DashboardActivity extends AppCompatActivity {
                 walletIcon.setColorFilter(getApplication().getResources().getColor(white));
                 profileIcon.setBackground(getApplication().getResources().getDrawable(R.drawable.profile1));
                 profileIcon.setColorFilter(getApplication().getResources().getColor(white));
+                binding.myJobsProfileLogo.setBackground(getApplication().getResources().getDrawable(R.drawable.myjobs));
+                binding.myJobsProfileLogo.setColorFilter(getApplication().getResources().getColor(white));
 
             }
             else {

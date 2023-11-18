@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,18 +27,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageView;
 
-import com.example.insphiredapp.Api_Model.GetProfieEmpApiData;
-import com.example.insphiredapp.Api_Model.LoginModel;
-import com.example.insphiredapp.Api_Model.PostProfieEmpDataApi;
 import com.example.insphiredapp.Api_Model.RegisterModel;
 import com.example.insphiredapp.Api_Model.RegisterModelData;
-import com.example.insphiredapp.Api_Model.VerifyOtpData;
-import com.example.insphiredapp.EmployeeActivity.DashboardActivityEmployee;
-import com.example.insphiredapp.EmployeeActivity.EmployeeProfileActivity;
 import com.example.insphiredapp.R;
 import com.example.insphiredapp.retrofit.Api;
 import com.example.insphiredapp.retrofit.Api_Client;
-import com.google.android.gms.dynamic.IFragmentWrapper;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -48,6 +40,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
@@ -78,8 +71,8 @@ public class RegisterActivity extends AppCompatActivity {
    private EditText firstNameRegEmpee,lastNameRegEmpee,emailRegEmpee, editPasswordRegEmpee,editConfirmPasswordRegEmpee,phoneNumber;
     ImageView regPasswordHidden,regPasswordShow,regConfirmPHidden,regConfirmPShow;
     LinearLayout linearRegisterEmployee;
-    String strAdmin = "employer",userTypeReg;
-    String strFirstName,strLastName,strEmail, strPassword, strPhone;
+    String strAdmin = "employee",userTypeReg;
+   private String strFirstName,strLastName,strEmail, strPassword, strPhone,StrTEmployer,StrJobseeker;
     RegisterModelData registerModelData;
     ImageView regArrowBackImg;
     public List<String> email;
@@ -97,12 +90,44 @@ public class RegisterActivity extends AppCompatActivity {
     AuthCredential credential;
     boolean clickedOtp=false;
     boolean clickedVideo=false;
+    Dialog getOtpDialog1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         inits();
+
+       StrTEmployer = getIntent().getStringExtra("TempEmployer");
+        Log.e("hejfda", ""+StrTEmployer );
+        StrJobseeker = getIntent().getStringExtra("temjc");
+        employeeRegBtn.setChecked(true);
+
+
+                if (StrTEmployer.equals("TemJPost")) {
+                    employerRegBtn.setChecked(true);
+
+                    employerRegBtn.isChecked();
+
+                    strAdmin = "employer";
+                    Log.e("emple", "onCheckedChanged:" + strAdmin);
+                    relativeUploadd.setVisibility(View.GONE);
+                    RelativeUploadVideo.setVisibility(View.GONE);
+                }
+
+                else
+                    {
+                        employeeRegBtn.setChecked(true);
+                        employeeRegBtn.isChecked();
+                        strAdmin = "employee";
+                        Log.e("emple", "onCheckedChanged:" + strAdmin  );
+                        relativeUploadd.setVisibility(View.VISIBLE);
+                        RelativeUploadVideo.setVisibility(View.VISIBLE);
+                    }
+
+
+
+
 
         FirebaseApp.initializeApp(RegisterActivity.this);
         context = RegisterActivity.this;
@@ -175,7 +200,9 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    sendVerificationCode("+91" + phoneNumber.getText().toString());
+                   // sendVerificationCode("+91" + phoneNumber.getText().toString());
+                    sendVerificationCode("+27" + phoneNumber.getText().toString());
+
 
                 }
             }
@@ -231,6 +258,8 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
+
+
         radioGroupBtn.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -240,7 +269,6 @@ public class RegisterActivity extends AppCompatActivity {
                     Log.e("emplr", "onCheckedChanged:" + strAdmin  );
                     relativeUploadd.setVisibility(View.GONE);
                     RelativeUploadVideo.setVisibility(View.GONE);
-
 
                 }
                 else if (employeeRegBtn.isChecked())
@@ -539,7 +567,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     private void openDialog() {
-        Dialog getOtpDialog1 = new Dialog(RegisterActivity.this);
+         getOtpDialog1 = new Dialog(RegisterActivity.this);
         getOtpDialog1.requestWindowFeature(Window.FEATURE_NO_TITLE);
         getOtpDialog1.setContentView(R.layout.reg_enterotp_popup);
         AppCompatImageView crossOtpreg = getOtpDialog1.findViewById(R.id.crossOtpreg);
@@ -552,7 +580,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String code = enterOtpReg.getOTP().toString();
                 Log.e("test_sam_otp",code);
                 verifyCode(code);
-                getOtpDialog1.dismiss();
+
             }
         });
 
@@ -589,8 +617,9 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete( Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-
-                            Toast.makeText(RegisterActivity.this, "OTP Verification Successful", Toast.LENGTH_SHORT).show();
+                            FirebaseUser user = task.getResult().getUser();
+                            Toast.makeText(RegisterActivity.this, "Authentication successful.", Toast.LENGTH_SHORT).show();
+                            getOtpDialog1.dismiss();
 
                          /*   Intent intent = new Intent(ForgetPasswordActivity.this, LoginActivity.class);
 
@@ -598,7 +627,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                         } else {
-                            Toast.makeText(RegisterActivity.this, "Please enter valid OTP", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Authentication failed", Toast.LENGTH_SHORT).show();
                             if (task.getException() instanceof
                                     FirebaseAuthInvalidCredentialsException) {
                             }

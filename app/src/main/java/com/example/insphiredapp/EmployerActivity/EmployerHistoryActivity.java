@@ -115,7 +115,7 @@ public class EmployerHistoryActivity extends AppCompatActivity {
                             // Id  = profileGetData.getId();
 
 
-                        //    Toast.makeText(EmployerHistoryActivity.this, msg, Toast.LENGTH_SHORT).show();
+                         Toast.makeText(EmployerHistoryActivity.this, msg, Toast.LENGTH_SHORT).show();
 
 
                             //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();

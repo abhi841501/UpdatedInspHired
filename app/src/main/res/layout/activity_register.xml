@@ -60,7 +60,6 @@
                     android:layout_marginStart="25dp"
                     android:layout_weight="1"
                     android:buttonTint="@color/darkRed"
-                    android:checked="true"
                     android:paddingLeft="10dp"
                     android:text="Employer"
                     android:textColor="@color/black"
@@ -276,7 +275,6 @@
                         <RelativeLayout
                             android:id="@+id/relativeUploadd"
                             android:layout_width="match_parent"
-                            android:visibility="gone"
                             android:layout_height="wrap_content">
 
 
@@ -314,13 +312,13 @@
 
                                 <androidx.appcompat.widget.AppCompatButton
                                     android:id="@+id/uploadPdetailsBtn"
-                                    android:layout_width="60dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="32dp"
                                     android:layout_alignParentRight="true"
                                     android:layout_centerInParent="true"
                                     android:layout_marginEnd="12dp"
                                     android:background="@drawable/reg_sendbtn_background"
-                                    android:text="Upload"
+                                    android:text="Upload CV"
                                     android:textAllCaps="false"
                                     android:textColor="@color/white"
                                     android:textSize="12dp"></androidx.appcompat.widget.AppCompatButton>
@@ -332,7 +330,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
                             android:layout_marginStart="22dp"
-                            android:visibility="gone"
                             android:layout_marginTop="25dp"
                             android:layout_marginEnd="22dp"
                             android:background="@drawable/login_backgrounf">
@@ -345,7 +342,7 @@
                                 android:layout_centerInParent="true"
                                 android:layout_marginLeft="15dp"
                                 android:gravity="center"
-                                android:hint="Upload video"
+                                android:hint="Upload your introduction"
                                 android:textSize="15dp" />
 
 

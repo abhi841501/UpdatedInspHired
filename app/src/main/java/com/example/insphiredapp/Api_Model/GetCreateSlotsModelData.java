@@ -6,10 +6,13 @@ import com.google.gson.annotations.SerializedName;
 public class GetCreateSlotsModelData {
     @SerializedName("id")
     @Expose
-    public String id;
+    public Integer id;
     @SerializedName("user_id")
     @Expose
-    public String userId;
+    public Integer userId;
+    @SerializedName("location_id")
+    @Expose
+    public Object locationId;
     @SerializedName("start_date")
     @Expose
     public String startDate;
@@ -33,38 +36,82 @@ public class GetCreateSlotsModelData {
     public String updatedAt;
 
     public Integer getId() {
-        return Integer.valueOf(id);
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getUserId() {
-        return Integer.valueOf(userId);
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Object getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(Object locationId) {
+        this.locationId = locationId;
     }
 
     public String getStartDate() {
         return startDate;
     }
 
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
     public String getEndDate() {
         return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
     public String getStartTime() {
         return startTime;
     }
 
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
     public String getEndTime() {
         return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public Integer getStatus() {
         return status;
     }
 
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     public String getCreatedAt() {
         return createdAt;
     }
 
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public String getUpdatedAt() {
         return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

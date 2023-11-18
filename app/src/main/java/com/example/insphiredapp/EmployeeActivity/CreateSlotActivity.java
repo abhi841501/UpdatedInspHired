@@ -411,7 +411,7 @@ public class CreateSlotActivity extends AppCompatActivity {
         }*/
 
         Api service = Api_Client.getClient().create(Api.class);
-        retrofit2.Call<CreateSlotModel> call = service.CREATE_SLOT_MODEL_CALL(UserId, StrStartDate, StrEndDate, StrStartTime, StrEndTime,StrselectLocationC);
+        retrofit2.Call<CreateSlotModel> call = service.CREATE_SLOT_MODEL_CALL(UserId,StrStartDate,StrEndDate,StrStartTime,StrEndTime,strAddresss);
         //   RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), paramObject);
         //retrofit2.Call<CreateSlotModel> call = service.CREATE_SLOT_MODEL_CALL(paramObject.toString());
 

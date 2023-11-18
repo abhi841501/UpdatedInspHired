@@ -168,10 +168,6 @@ public class HomeFragment extends Fragment {
                             notificationModelDataList = notificationModel.getData();
                             String countt = String.valueOf(notificationModel.getCount());
                             notificationCountEmployer.setText(countt);
-
-
-
-
                             // Toast.makeText(NotificationActivity.this, msg, Toast.LENGTH_SHORT).show();
 
 

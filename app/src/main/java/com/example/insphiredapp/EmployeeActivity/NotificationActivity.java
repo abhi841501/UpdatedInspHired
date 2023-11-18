@@ -5,25 +5,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.insphiredapp.Adapter.EmployeeHistoryAdapter;
-import com.example.insphiredapp.Adapter.NonNull;
 import com.example.insphiredapp.Adapter.NotificationAdapter;
-import com.example.insphiredapp.Api_Model.EmployeeHistoryModel;
-import com.example.insphiredapp.Api_Model.Notification;
 import com.example.insphiredapp.Api_Model.NotificationModel;
 import com.example.insphiredapp.Api_Model.NotificationModelData;
 import com.example.insphiredapp.R;
 import com.example.insphiredapp.retrofit.Api;
 import com.example.insphiredapp.retrofit.Api_Client;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONObject;
 
@@ -42,6 +36,7 @@ public class NotificationActivity extends AppCompatActivity {
     NotificationAdapter notificationAdapter;
     ImageView backArrowNotification;
     private String UserId,UserType;
+    LinearLayout no_NotificationLinear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +45,12 @@ public class NotificationActivity extends AppCompatActivity {
 
         recyclerNotification = findViewById(R.id.recyclerNotification);
         backArrowNotification = findViewById(R.id.backArrowNotification);
+        no_NotificationLinear = findViewById(R.id.no_NotificationLinear);
+
+        if (notificationModelDataList.isEmpty())
+        {
+            no_NotificationLinear.setVisibility(View.VISIBLE);
+        }
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(NotificationActivity.this,LinearLayoutManager.VERTICAL,false);
         recyclerNotification.setLayoutManager(layoutManager);

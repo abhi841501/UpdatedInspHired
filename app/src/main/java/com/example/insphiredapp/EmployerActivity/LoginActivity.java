@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +28,7 @@ import com.example.insphiredapp.EmployeeActivity.EmployeeProfileActivity;
 import com.example.insphiredapp.R;
 import com.example.insphiredapp.retrofit.Api;
 import com.example.insphiredapp.retrofit.Api_Client;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONObject;
 
@@ -36,30 +38,50 @@ import retrofit2.Call;
 import retrofit2.Callback;
 
 public class LoginActivity extends AppCompatActivity {
+    private static final String TAG = "LoginActivity";
+    private static final String KEY_IS_LOGGED_IN = "is_logged_in";
+    private static final String AUTH_KEY = "AAAAwI2vfT8:APA91bFJDQihSX6NNb-k7h2o-T05SL3vWMSONGPuwXCpZFrSMEtxciqC02-zCO1ko3mv7rEIaxuRLc0XIMglPXEIJVeeaIW8SII5rrN7UNOd2hPhidL2mbUbWkvkjR-n_dgX_0VCWJCO";
+    public static String PREFS_NAME = "MyPrefsFile";
     TextView SignUpTxtEmployee, forgetPasswordEmployee;
     RadioButton employeeLogBtn, employerLogBtn;
     AppCompatButton loginBtnEmployee, loginBtnEmployer;
     ImageView hiddenPasswordLogin, showPasswordLogin;
     EditText loginEmployeePassword, loginEmployeeEmail;
     LinearLayout linearEmployeeLogin;
-    String strEmail, strPassword, Device_token, Id, userType, strAdmin="employer", strDefault,EmailLl,Passwordll,
-            strEmpyeeId,strEmpyrrID,strCheck = "0";
+    String strEmail, strPassword, Device_token, Id, userType, strAdmin = "employer", strDefault, EmailLl, Passwordll,
+            strEmpyeeId, strEmpyrrID, strCheck = "0";
     CheckBox rememberCheck;
-    String termCondition,idDuty;
-
-    private static final String KEY_IS_LOGGED_IN = "is_logged_in";
+    String termCondition, idDuty;
     boolean isLoggedIn = true;
     RadioGroup radioGroupBtnLogin;
+    LoginModelData loginModelData;
+    String fcmToken;
 
-     LoginModelData loginModelData;
-
-     public static String PREFS_NAME="MyPrefsFile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         inits();
+
+        Log.e("Token", "retrieve token successful : " + "token");
+
+
+        FirebaseMessaging.getInstance().getToken().addOnSuccessListener(token -> {
+            if (!TextUtils.isEmpty(token)) {
+                fcmToken = token;
+                Log.e("Token", "retrieve token successful :: " + fcmToken);
+            } else {
+                Log.w(TAG, "token should not be null...");
+            }
+        }).addOnFailureListener(e -> {
+            //handle e
+        }).addOnCanceledListener(() -> {
+            //handle cancel
+        }).addOnCompleteListener(task -> Log.v(TAG, "This is the token : " + task.getResult()));
+
+
+
         SignUpTxtEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,8 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                 strEmail = loginEmployeeEmail.getText().toString();
                 strPassword = loginEmployeePassword.getText().toString();
 
-                if (rememberCheck.isChecked())
-                {
+                if (rememberCheck.isChecked()) {
                     strCheck = "1";
                 }
 
@@ -132,15 +153,13 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
     private void loginEmployee_Api() {
-
         final ProgressDialog pd = new ProgressDialog(LoginActivity.this);
         pd.setCancelable(false);
         pd.setMessage("loading...");
         pd.show();
         Api service = Api_Client.getClient().create(Api.class);
-        retrofit2.Call<LoginModel> call = service.LOGIN_MODEL_CALL(strEmail, strPassword, "abcde",strAdmin);
+        retrofit2.Call<LoginModel> call = service.LOGIN_MODEL_CALL(strEmail, strPassword, fcmToken, strAdmin);
 
         call.enqueue(new Callback<LoginModel>() {
             @Override
@@ -159,7 +178,7 @@ public class LoginActivity extends AppCompatActivity {
                             userType = loginModelData.getUserType();
                             Device_token = loginModelData.getDeviceToken();
                             termCondition = String.valueOf(loginModelData.getTermCondition());
-                            Log.e("test", "Id" +strAdmin);
+                            Log.e("test", "Id" + strAdmin);
                             //Toast.makeText(LoginActivity.this,Id,Toast.LENGTH_LONG).show();
                             boolean isRemember = rememberCheck.isChecked();
                             SharedPreferences getUserIdData = getSharedPreferences("AUTHENTICATION_FILE_NAME", Context.MODE_PRIVATE);
@@ -177,9 +196,10 @@ public class LoginActivity extends AppCompatActivity {
                                 // Clear email and password if "Remember Me" is unchecked
                                 editor.remove("email");
                                 editor.remove("password");
-                            };
+                            }
+                            ;
 
-                            Log.e("Login","provides types of user" +   userType );
+                            Log.e("Login", "provides types of user" + userType);
                             editor.apply();
                             if (isRemembered) {
                                 // If "Remember Me" is checked, set the email and password in EditText fields
@@ -190,23 +210,17 @@ public class LoginActivity extends AppCompatActivity {
                                 loginEmployeePassword.setText(savedPassword);
                                 rememberCheck.setChecked(true);
                             }
-                           // Toast.makeText(getApplicationContext(), "userType"  +" "+userType, Toast.LENGTH_SHORT).show();
-                            if (strAdmin.equalsIgnoreCase("employer"))
-
-                            {
-                                if (termCondition.equals("1"))
-                                {
+                            // Toast.makeText(getApplicationContext(), "userType"  +" "+userType, Toast.LENGTH_SHORT).show();
+                            if (strAdmin.equalsIgnoreCase("employer")) {
+                                if (termCondition.equals("1")) {
                                     Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-                                    intent.putExtra("strEmpyrrID",strEmpyrrID);
-                                    intent.putExtra("userType",userType);
-                                    intent.putExtra("strDefault",strDefault);
-                                   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    intent.putExtra("strEmpyrrID", strEmpyrrID);
+                                    intent.putExtra("userType", userType);
+                                    intent.putExtra("strDefault", strDefault);
+                                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
                                     //Toast.makeText(LoginActivity.this,Id,Toast.LENGTH_LONG).show();
-                                }
-
-                                else
-                                {
+                                } else {
                                     Intent intent = new Intent(LoginActivity.this, ProfileEmployerFirstActivity.class);
                                     startActivity(intent);
                                 }
@@ -214,18 +228,15 @@ public class LoginActivity extends AppCompatActivity {
 
                             }
 
-                             if (strAdmin.equals("employee"))
-                            {
-                                if (termCondition.equals("1.0"))
-                                {
+                            if (strAdmin.equals("employee")) {
+                                if (termCondition.equals("1.0")) {
                                     Intent intent = new Intent(LoginActivity.this, DashboardActivityEmployee.class);
-                                    intent.putExtra("strEmpyeeId",strEmpyeeId);
-                                    intent.putExtra("userType",userType);
-                                   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    intent.putExtra("strEmpyeeId", strEmpyeeId);
+                                    intent.putExtra("userType", userType);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
-                                   // Toast.makeText(LoginActivity.this,Id,Toast.LENGTH_LONG).show();
-                                }
-                                else{
+                                    // Toast.makeText(LoginActivity.this,Id,Toast.LENGTH_LONG).show();
+                                } else {
                                     Intent intent = new Intent(LoginActivity.this, EmployeeProfileActivity.class);
                                     startActivity(intent);
                                 }
@@ -235,7 +246,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                         } else {
-                           Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                             pd.dismiss();
 
                             Log.e("user_id", "    False");
@@ -303,12 +314,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private boolean validation() {
-        if (loginEmployeeEmail.getText().toString().equals(""))
-        {
+        if (loginEmployeeEmail.getText().toString().equals("")) {
             Toast.makeText(this, "Please Enter  Email Address", Toast.LENGTH_SHORT).show();
             return false;
-        }
-     else if (loginEmployeePassword.getText().toString().equals("")) {
+        } else if (loginEmployeePassword.getText().toString().equals("")) {
             Toast.makeText(LoginActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
             return false;
         }

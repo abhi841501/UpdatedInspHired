@@ -7,15 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.insphiredapp.Api_Model.Notification;
-import com.example.insphiredapp.Api_Model.NotificationModel;
 import com.example.insphiredapp.Api_Model.NotificationModelData;
 import com.example.insphiredapp.R;
-import com.example.insphiredapp.retrofit.Api_Client;
 
 import java.util.List;
 
@@ -41,7 +36,14 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     public void onBindViewHolder(@NonNull NotificationAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.NotificationHeading.setText(notificationModelDataList.get(position).getSubject());
         holder.NotificationMessage.setText(notificationModelDataList.get(position).getMessage());
-
+        String id = String.valueOf(notificationModelDataList.get(position).getNotificationId());;
+      /*  holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, NotificationConfirmationActivity.class);
+                context.startActivity(intent);
+            }
+        });*/
 
     }
 
@@ -53,12 +55,12 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        CircleImageView imgCpny;
+        CircleImageView imgCpnyy;
         TextView NotificationHeading,NotificationMessage;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imgCpny = itemView.findViewById(R.id.imgCpny);
+            imgCpnyy = itemView.findViewById(R.id.imgCpnyy);
             NotificationHeading = itemView.findViewById(R.id.NotificationHeading);
             NotificationMessage = itemView.findViewById(R.id.NotificationMessage);
         }

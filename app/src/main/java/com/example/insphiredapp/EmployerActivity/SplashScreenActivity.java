@@ -48,7 +48,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                     // User is logged in, proceed to the appropriate dashboard
                     // place this with your method to get user type
 
-                    if (strUserType.equals("employer")) {
+                    if (strUserType.equals("employer")||strUserType.equals("corporator")) {
                         startActivity(new Intent(SplashScreenActivity.this, DashboardActivity.class));
                     } else if (strUserType.equals("employee")) {
                         startActivity(new Intent(SplashScreenActivity.this, DashboardActivityEmployee.class));
