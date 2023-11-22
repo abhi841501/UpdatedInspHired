@@ -27,7 +27,8 @@
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.GET_TASKS"
+    <uses-permission
+        android:name="android.permission.GET_TASKS"
         tools:ignore="MissingPrefix" />
     <!--
 <uses-feature android:name="android.hardware.camera" />
@@ -45,13 +46,16 @@
 
     <application
         android:allowBackup="true"
-        android:requestLegacyExternalStorage="true"
         android:icon="@mipmap/ic_launcher1"
-        android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:label="@string/app_name"
         android:launchMode="singleTop"
-        android:roundIcon="@mipmap/ic_launcher1">
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher1"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".EmployerActivity.EmployerWebViewActivity"
+            android:exported="false" />
         <activity
             android:name=".EmployeeActivity.NotificationConfirmationActivity"
             android:exported="true" />

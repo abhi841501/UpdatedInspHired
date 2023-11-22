@@ -40,7 +40,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProfileFragmentEmployee extends Fragment implements RefreshInterface {
+public class ProfileFragmentEmployee extends Fragment{
 
     LinearLayout linearEditProfileEmployee,linearTotalEarning,linearChangePasswordEmployee,linearLogoutEmployee;
     private String UserId,StrCName;
@@ -64,7 +64,7 @@ public class ProfileFragmentEmployee extends Fragment implements RefreshInterfac
         linearLogoutEmployee = view.findViewById(R.id.linearLogoutEmployee);
         imageProfileeeee = view.findViewById(R.id.imageProfileeeee);
         nameProfile = view.findViewById(R.id.nameProfile);
-        refreshInterface = this;
+
 
         linearEditProfileEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -250,8 +250,18 @@ public class ProfileFragmentEmployee extends Fragment implements RefreshInterfac
 
     }
     @Override
-    public void Refresh() {
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser && isResumed()) {
+            onResume();
+        }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!getUserVisibleHint()) {
+            return;
+        }
         getProfileApi();
-
     }
 }

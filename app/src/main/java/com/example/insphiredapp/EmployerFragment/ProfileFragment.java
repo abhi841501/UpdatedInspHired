@@ -240,7 +240,20 @@ public class ProfileFragment extends Fragment {
 
     }
 
-    private void default_Load() {
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser && isResumed()) {
+            onResume();
+        }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!getUserVisibleHint()) {
+            return;
+        }
+        getProfileDetailsApi();
     }
 
 }

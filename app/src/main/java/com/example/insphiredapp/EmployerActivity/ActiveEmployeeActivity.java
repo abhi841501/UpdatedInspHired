@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,6 +41,7 @@ public class ActiveEmployeeActivity extends AppCompatActivity {
     String[] searchNameList;
     private SearchView searchQueryOnGoing;
     List<GetEmployeeBookedListModelData> backup = new ArrayList<>();
+    LinearLayout active_candidates_Linearrr;
 
 
 
@@ -51,6 +53,7 @@ public class ActiveEmployeeActivity extends AppCompatActivity {
         recylerHiredList = findViewById(R.id.recylerHiredList);
         arrowHired = findViewById(R.id.arrowHired);
         searchQueryOnGoing = findViewById(R.id.searchQueryOnGoing);
+        active_candidates_Linearrr = findViewById(R.id.active_candidates_Linearrr);
 
         arrowHired.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +92,8 @@ public class ActiveEmployeeActivity extends AppCompatActivity {
         Log.e("feedback", "change" + user_id);
         GetBookedEmployee();
 
+
+
     }
     private void  GetBookedEmployee() {
         final ProgressDialog pd = new ProgressDialog(ActiveEmployeeActivity.this);
@@ -115,6 +120,11 @@ public class ActiveEmployeeActivity extends AppCompatActivity {
                         if (success.equals("true")|| (success.equals("True"))) {
 
                             getEmployeeBookedListModelData=employeeBookedListModel.getData();
+                            if (getEmployeeBookedListModelData.isEmpty())
+                            {
+                                active_candidates_Linearrr.setVisibility(View.VISIBLE);
+                                recylerHiredList.setVisibility(View.GONE);
+                            }
                            // getEmployeeBookedListModelData = employeeBookedListModel.getData();
                             bookedEmployeeListAdapter = new BookedEmployeeListAdapter(ActiveEmployeeActivity.this, getEmployeeBookedListModelData,backup);
                             recylerHiredList.setAdapter(bookedEmployeeListAdapter);

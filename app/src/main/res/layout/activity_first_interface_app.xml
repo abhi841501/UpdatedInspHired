@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".FirstInterfaceApp.FirstInterfaceAppActivity">
 
@@ -24,29 +25,42 @@
 
     </RelativeLayout>-->
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/bottombanner" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:orientation="vertical">
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginRight="70dp"
                     android:background="@drawable/job_seeker_interface"
                     android:gravity="center"
                     app:cardCornerRadius="20dp">
@@ -57,20 +71,19 @@
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
-                        android:text="ARE YOU A"
+                        android:text="ARE YOU A ?"
                         android:textColor="@color/white"
-                        android:textSize="32dp"
-                        android:textStyle="bold"></TextView>
+                        android:textSize="32dp"></TextView>
 
                     <View
                         android:id="@+id/view1"
-                        android:layout_width="160dp"
-                        android:layout_height="4dp"
-                        android:layout_marginTop="-7dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
                         android:layout_below="@+id/areYouA"
                         android:layout_centerHorizontal="true"
+                        android:layout_marginTop="7dp"
                         android:background="@color/white"
                         android:gravity="center" />
 
@@ -80,36 +93,33 @@
                         android:layout_height="70sp"
                         android:layout_below="@+id/view1"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:background="@drawable/job_seeker_background"
+                        android:layout_marginTop="10dp"
                         android:orientation="vertical">
 
 
                         <TextView
                             android:id="@+id/jobSeeker"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="18dp"
                             android:gravity="center_horizontal"
-                            android:text="JOBSEEKER"
+                            android:text="EMPLOYEE"
                             android:textColor="@color/white"
-                            android:textSize="22dp"
-                            android:textStyle="bold" />
-
-                        <View
-                            android:id="@+id/view2"
-                            android:layout_width="match_parent"
-                            android:layout_height="3dp"
-                            android:layout_below="@+id/jobSeeker"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="65dp"
-                            android:layout_marginTop="-26dp"
-                            android:layout_marginRight="65dp"
-                            android:background="@color/white"
-                            android:gravity="center" />
+                            android:textSize="32dp" />
 
                     </LinearLayout>
+
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/linearjobseekerrrr"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginRight="35dp"
+                        android:background="@color/white"
+                        android:gravity="center" />
 
                     <LinearLayout
                         android:id="@+id/linearEmployer"
@@ -117,8 +127,7 @@
                         android:layout_height="70sp"
                         android:layout_below="@+id/linearjobseekerrrr"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/job_seeker_background"
+                        android:layout_marginTop="10dp"
                         android:orientation="vertical">
 
 
@@ -131,21 +140,18 @@
                             android:gravity="center_horizontal"
                             android:text="EMPLOYER"
                             android:textColor="@color/white"
-                            android:textSize="22dp"
-                            android:textStyle="bold" />
-
-                        <View
-                            android:id="@+id/view3"
-                            android:layout_width="match_parent"
-                            android:layout_height="3dp"
-                            android:layout_below="@+id/employer"
-                            android:layout_marginLeft="65dp"
-                            android:layout_marginTop="-26dp"
-                            android:layout_marginRight="65dp"
-                            android:background="@color/white"
-                            android:gravity="center" />
-
+                            android:textSize="32dp" />
                     </LinearLayout>
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/linearEmployer"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginRight="35dp"
+                        android:background="@color/white"
+                        android:gravity="center" />
 
                     <LinearLayout
                         android:id="@+id/linearCorporatorrr"
@@ -153,9 +159,8 @@
                         android:layout_height="70sp"
                         android:layout_below="@+id/linearEmployer"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginBottom="20dp"
-                        android:background="@drawable/job_seeker_background"
                         android:orientation="vertical">
 
 
@@ -166,21 +171,9 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="18dp"
                             android:gravity="center_horizontal"
-                            android:text="CORPORATOR"
+                            android:text="CORPORATE"
                             android:textColor="@color/white"
-                            android:textSize="22dp"
-                            android:textStyle="bold" />
-
-                        <View
-                            android:id="@+id/view4"
-                            android:layout_width="match_parent"
-                            android:layout_height="3dp"
-                            android:layout_below="@+id/corporator"
-                            android:layout_marginLeft="52dp"
-                            android:layout_marginTop="-26dp"
-                            android:layout_marginRight="52dp"
-                            android:background="@color/white"
-                            android:gravity="center" />
+                            android:textSize="32dp" />
 
                     </LinearLayout>
 
@@ -190,6 +183,4 @@
 
             </RelativeLayout>
         </LinearLayout>
-    </ScrollView>
-
 </LinearLayout>

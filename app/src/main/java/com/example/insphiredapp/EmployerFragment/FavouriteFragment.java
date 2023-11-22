@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -38,6 +39,7 @@ public class FavouriteFragment extends Fragment {
     List<GetFavouriteModelList>getFavouriteModelLists = new ArrayList<>();
     FavouriteEmployerAdapter favouriteEmployerAdapterAdapter;
     private String UserId,UserType;
+    private LinearLayout fav_employee_Linearrr;
 
 
 
@@ -49,6 +51,7 @@ public class FavouriteFragment extends Fragment {
         View view  =  inflater.inflate(R.layout.fragment_favourite, container, false);
 
         recyclerFavourite = view.findViewById(R.id.recyclerFavourite);
+        fav_employee_Linearrr = view.findViewById(R.id.fav_employee_Linearrr);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerFavourite.setLayoutManager(layoutManager);
@@ -88,6 +91,14 @@ public class FavouriteFragment extends Fragment {
 
                         if (success.equals("true")|| (success.equals("True"))) {
                             getFavouriteModelLists = getFavouriteModel.getData();
+
+                            if (getFavouriteModelLists.isEmpty())
+                            {
+                                fav_employee_Linearrr.setVisibility(View.VISIBLE);
+                                recyclerFavourite.setVisibility(View.GONE);
+
+                            }
+
                             favouriteEmployerAdapterAdapter = new FavouriteEmployerAdapter(getActivity(), getFavouriteModelLists);
                             recyclerFavourite.setAdapter(favouriteEmployerAdapterAdapter);
 

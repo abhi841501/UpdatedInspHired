@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".EmployerActivity.WebViewActivity">
+    tools:context=".EmployerActivity.EmployerWebViewActivity">
+
 
 
     <FrameLayout
@@ -27,12 +27,9 @@
             <WebView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:id="@+id/webView"/>
+                android:id="@+id/EmpwebView"/>
         </ScrollView>
 
     </LinearLayout>
-
-
 
 </RelativeLayout>

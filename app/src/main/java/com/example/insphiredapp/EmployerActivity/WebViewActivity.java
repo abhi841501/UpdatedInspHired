@@ -141,6 +141,7 @@ public class WebViewActivity extends AppCompatActivity {
                      totalAmount + "&time_slot_id=" + slotid + "&user_type=" + UserType;
 
              webView.loadUrl(finalUrl);
+             Log.e("token", "finalUrl: "+ finalUrl);
          }
 
          else

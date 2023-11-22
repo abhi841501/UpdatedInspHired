@@ -201,7 +201,7 @@ public class RegisterActivity extends AppCompatActivity {
                 else
                 {
                    // sendVerificationCode("+91" + phoneNumber.getText().toString());
-                    sendVerificationCode("+27" + phoneNumber.getText().toString());
+                    sendVerificationCode("+91" + phoneNumber.getText().toString());
 
 
                 }

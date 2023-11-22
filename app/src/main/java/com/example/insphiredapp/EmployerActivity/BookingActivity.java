@@ -474,15 +474,14 @@ public class BookingActivity extends AppCompatActivity {
 
                         if (success.equals("true") || (success.equals("True"))) {
                             bookingModelData = bookingModel.getData();
-
-                            Intent intent = new Intent(BookingActivity.this, WebViewActivity.class);
-                            intent.putExtra("strAmount", strTotalAmount);
-                            intent.putExtra("strEmpid", EmployeeId);
-                            intent.putExtra("UserId", UserId);
-                            intent.putExtra("SlotId", TimeSlotId);
-                            intent.putExtra("Type", UserType);
-                            intent.putExtra("StrGeneratePOTxt", StrGeneratePOTxt);
-                            startActivity(intent);
+                                Intent intent = new Intent(BookingActivity.this, WebViewActivity.class);
+                                intent.putExtra("strAmount", strTotalAmount);
+                                intent.putExtra("strEmpid", EmployeeId);
+                                intent.putExtra("UserId", UserId);
+                                intent.putExtra("SlotId", TimeSlotId);
+                                intent.putExtra("Type", UserType);
+                                intent.putExtra("StrGeneratePOTxt", StrGeneratePOTxt);
+                                startActivity(intent);
 
                             /*AmountBookingTxt.setText("");*/
                             Log.e("hello", "getData: ");

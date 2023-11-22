@@ -67,7 +67,7 @@
                 app:bar_enabled="true"
                 android:layout_gravity="center"
                 app:bar_error_color="@color/red"
-                app:bar_height="1.5dp"
+                app:bar_height="1dp"
                 app:bar_inactive_color="@color/white"
                 app:bar_margin_bottom="10dp"
                 app:bar_margin_top="50dp"
@@ -79,7 +79,7 @@
                 app:length="6"
                 app:otp=""
                 app:otp_text_size="20dp"
-                app:width="45dp" />
+                app:width="35dp" />
         </LinearLayout>
 
 

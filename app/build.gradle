@@ -150,10 +150,6 @@ implementation 'androidx.annotation:annotation-jvm:1.6.0'
 
     //library for file
     implementation project(':library')
-
-
-
-
 }
 
 

@@ -47,11 +47,6 @@ public class MyJobsFragment extends Fragment {
         recyclerAppointments = view.findViewById(R.id.recyclerAppointments);
         no_jobLinear = view.findViewById(R.id.no_jobLinear);
 
-        if (upcomingJobModelDataList.isEmpty())
-        {
-            no_jobLinear.setVisibility(View.VISIBLE);
-        }
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         recyclerAppointments.setLayoutManager(layoutManager);
 
@@ -87,6 +82,11 @@ public class MyJobsFragment extends Fragment {
 
                         if (success.equals("true")|| (success.equals("True"))) {
                             upcomingJobModelDataList = response.body().getData();
+                            if (upcomingJobModelDataList.isEmpty())
+                            {
+                                no_jobLinear.setVisibility(View.VISIBLE);
+                                recyclerAppointments.setVisibility(View.GONE);
+                            }
                             myAppointmentAdapter = new MyAppointmentAdapter(getActivity(),upcomingJobModelDataList);
                             recyclerAppointments.setAdapter(myAppointmentAdapter);
 

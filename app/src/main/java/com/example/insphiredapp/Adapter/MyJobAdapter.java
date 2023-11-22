@@ -237,7 +237,7 @@ public class MyJobAdapter extends RecyclerView.Adapter<MyJobAdapter.ViewHolder> 
             {
                 for (MyJobModelData obj : myJobModelDataListBackUp)
                 {
-                    if (obj.getCatName().toString().toLowerCase().contains(keyword.toString().toLowerCase()))
+                    if (obj.getCompanyName().toString().toLowerCase().contains(keyword.toString().toLowerCase()))
                         filtereddata.add(obj);
                 }
             }

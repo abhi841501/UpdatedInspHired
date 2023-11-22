@@ -53,11 +53,6 @@ public class MyJobActivity extends AppCompatActivity {
         searchQueryMyJobs = findViewById(R.id.searchQueryMyJobs);
         no_jobLinearrr = findViewById(R.id.no_jobLinearrr);
 
-        if(myJobModelDataList.isEmpty())
-        {
-            no_jobLinearrr.setVisibility(View.VISIBLE);
-        }
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MyJobActivity.this,LinearLayoutManager.VERTICAL,false);
         recyclerApplyJob.setLayoutManager(layoutManager);
         searchQueryMyJobs.setIconified(false);
@@ -86,7 +81,6 @@ public class MyJobActivity extends AppCompatActivity {
         user_id = getUserIdData.getString("Id", "");
         UserType = getUserIdData.getString("userType", "");
 
-
         GetMyJobApi();
 
     }
@@ -114,6 +108,11 @@ public class MyJobActivity extends AppCompatActivity {
 
                         if (success.equals("true")|| (success.equals("True"))) {
                             myJobModelDataList = myJobModel.getData();
+                            if(myJobModelDataList.isEmpty())
+                            {
+                                no_jobLinearrr.setVisibility(View.VISIBLE);
+                                recyclerApplyJob.setVisibility(View.GONE);
+                            }
                             myJobAdapter = new MyJobAdapter(MyJobActivity.this, myJobModelDataList,myJobModelDataListBackUp,UserType);
                             recyclerApplyJob.setAdapter(myJobAdapter);
 

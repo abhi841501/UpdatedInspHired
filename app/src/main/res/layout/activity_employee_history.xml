@@ -55,7 +55,7 @@
             android:textColor="@color/white"
             android:textSize="16dp"
             android:layout_weight="1"
-            android:text="Complete"/>
+            android:text="Completed"/>
 
 
 
@@ -70,7 +70,7 @@
             android:background="@drawable/cancelled"
             android:textColor="@color/black"
             android:layout_weight="1"
-            android:text="Canceled"/>
+            android:text="Cancelled"/>
 
     </LinearLayout>
 

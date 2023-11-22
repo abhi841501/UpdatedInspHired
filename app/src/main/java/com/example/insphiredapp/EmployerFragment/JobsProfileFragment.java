@@ -43,7 +43,6 @@ public class JobsProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentJobsProfileBinding.inflate(inflater, container, false);
-
         binding.createJobsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +59,8 @@ public class JobsProfileFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         binding.recyclerJobsList.setLayoutManager(layoutManager);
         showJobsApi();
+
+
         return binding.getRoot();
        // return inflater.inflate(R.layout.fragment_jobs_profile, container, false);
     }
@@ -84,6 +85,11 @@ public class JobsProfileFragment extends Fragment {
 
                         if (success.equals("true")|| (success.equals("True"))) {
                             jobsListList = response.body().getMyJobList();
+                            if (jobsListList.isEmpty())
+                            {
+                                binding.recyclerJobsList.setVisibility(View.GONE);
+                                binding.myJonbsListtLinear.setVisibility(View.VISIBLE);
+                            }
                             jobProfileAdapter = new JobProfileAdapter(getActivity(),jobsListList);
                             binding.recyclerJobsList.setAdapter(jobProfileAdapter);
 
@@ -155,5 +161,20 @@ public class JobsProfileFragment extends Fragment {
         });
 
 
+    }
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser && isResumed()) {
+            onResume();
+        }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!getUserVisibleHint()) {
+            return;
+        }
+        showJobsApi();
     }
 }
